@@ -16,7 +16,7 @@ export const Slider = () => {
         spaceBetween={20}
         slidesPerView={1}
         autoplay={{
-          delay: 3000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}
