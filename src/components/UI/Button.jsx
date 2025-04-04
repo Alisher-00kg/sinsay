@@ -29,7 +29,7 @@ const StyledButton = styled.button`
 
   &:active {
     transform: scale(1.2);
-    background-color: rgb(3, 42, 82);
+    background-color: rgb(3, 42, 81);
   }
 `;
-// 1
+// askfnsd
