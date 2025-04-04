@@ -16,15 +16,15 @@ export const Button = ({ children, onClick, disabled, type, ...props }) => {
   );
 };
 const StyledButton = styled.button`
+  width: 100px;
+  height: 49px;
   display: flex;
   align-items: center;
   justify-content: center;
-  //   gap: 10px;
   border: none;
   color: #ffffff;
   cursor: pointer;
   background-color: #000000;
-  width: 100px;
   transition: transform 0.1s ease, background-color 0.2s ease;
 
   &:active {
@@ -32,4 +32,3 @@ const StyledButton = styled.button`
     background-color: rgb(3, 42, 81);
   }
 `;
-// askfnsd
