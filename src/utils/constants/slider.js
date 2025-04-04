@@ -1,6 +1,9 @@
-import FirstBanner from "../../assets/images/banner/first.jpg";
-import SecondBanner from "../../assets/images/banner/second.jpg";
-import ThirdBanner from "../../assets/images/banner/third.jpg";
+import {
+  FirstBanner,
+  SecondBanner,
+  ThirdBanner,
+} from "../../assets/images/images";
+
 export const images = [
   { id: 1, src: FirstBanner, alt: "Первая картинка" },
   { id: 2, src: SecondBanner, alt: "Вторая картинка" },
