@@ -1,46 +1,45 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { images } from "../../utils/constants/slider";
 export const Slider = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   return (
     <SliderWrapper>
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination, Autoplay]}
         loop={true}
         spaceBetween={20}
         slidesPerView={1}
-        onInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-          swiper.navigation.init();
-          swiper.navigation.update();
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
         }}
+        pagination={{ clickable: true }}
+        style={{ height: "100%" }}
       >
         {images.map((img) => (
           <SwiperSlide key={img.id}>
-            <img
-              src={img.src}
-              alt={img.alt}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "16px",
-              }}
-            />
+            <SlideContainer>
+              <img
+                src={img.src}
+                alt={img.alt}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "16px",
+                }}
+              />
+            </SlideContainer>
           </SwiperSlide>
         ))}
       </Swiper>
-      <ButtonWrapper>
-        <PrevButton ref={prevRef}>&lt;</PrevButton>
-        <NextButton ref={nextRef}>&gt;</NextButton>
-      </ButtonWrapper>
+      <PaginationContainer className="swiper-pagination" />
     </SliderWrapper>
   );
 };
@@ -48,29 +47,35 @@ export const Slider = () => {
 const SliderWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 370px;
   margin: 0 auto;
+  padding-bottom: 30px;
 `;
-const ButtonWrapper = styled.div`
+const SlideContainer = styled.div`
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+const PaginationContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  gap: 60px;
-  margin-top: 15px;
-`;
-const StyledButton = styled.button`
-  background-color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  font-size: 18px;
+  gap: 10px;
 
-  &:hover {
-    background-color: #f3f3f3;
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #333;
   }
 `;
-
-const PrevButton = styled(StyledButton)``;
-
-const NextButton = styled(StyledButton)``;

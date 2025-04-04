@@ -1,0 +1,77 @@
+export { default as FirstBanner } from "./banner/first.jpg";
+export { default as SecondBanner } from "./banner/second.jpg";
+export { default as ThirdBanner } from "./banner/third.jpg";
+export { default as Sunscream } from "./face-care/Sunscream.webp";
+export { default as CreamAfterSun } from "./face-care/CreamAfterSun.webp";
+export { default as SuntanOil } from "./face-care/SuntanOil.webp";
+export { default as SprayTanning } from "./face-care/SprayTanning.webp";
+export { default as HydrophilicOil } from "./face-care/HydrophilicOil.webp";
+export { default as MoisturizingMask } from "./face-care/MoisturizingMask.webp";
+export { default as FacialTonic } from "./face-care/FacialTonic.webp";
+export { default as MoisturizingSerum } from "./face-care/MoisturizingSerum.webp";
+export { default as MoisturizingCream } from "./face-care/MoisturizingCream.webp";
+export { default as AntiAgingSerum } from "./face-care/AntiageSerum.webp";
+export { default as NightSerum } from "./face-care/NightSerum.webp";
+export { default as PerfectSerum } from "./face-care/PerfectSerum.webp";
+export { default as MaskAcids } from "./face-care/MaskAcids.webp";
+export { default as MattifyingTonic } from "./face-care/MattifyingTonic.webp";
+export { default as EnzymePowder } from "./face-care/EnzymePowder.webp";
+export { default as LipScrub } from "./face-care/LipScrub.webp";
+export { default as FoundationBlazy1 } from "../images/makeup/FoundationBlazy1.webp";
+export { default as FoundationBlazy2 } from "../images/makeup/FoundationBlazy2.webp";
+export { default as FoundationBlazy3 } from "../images/makeup/FoundationBlazy3.webp";
+export { default as FoundationBlazy4 } from "../images/makeup/FoundationBlazy4.webp";
+export { default as Powder1 } from "../images/makeup/Powder1.webp";
+export { default as Powder2 } from "../images/makeup/Powder2.webp";
+export { default as Powder3 } from "../images/makeup/Powder3.webp";
+export { default as Powder4 } from "../images/makeup/Powder4.webp";
+export { default as Mascara1 } from "../images/makeup/Mascara2.webp";
+export { default as Mascara2 } from "../images/makeup/Mascara.webp";
+export { default as LipOil1 } from "../images/makeup/LipOil1.webp";
+export { default as LipOil2 } from "../images/makeup/LipOil2.webp";
+export { default as LipOil3 } from "../images/makeup/LipOil3.webp";
+export { default as LipOil4 } from "../images/makeup/LipOil4.webp";
+export { default as LipStick1 } from "../images/makeup/LipStick1.webp";
+export { default as LipStick2 } from "../images/makeup/LipStick2.webp";
+export { default as LipStick3 } from "../images/makeup/LipStick3.webp";
+export { default as LipStick4 } from "../images/makeup/LipStick4.webp";
+
+export const Images = {
+  FirstBanner,
+  SecondBanner,
+  ThirdBanner,
+  Sunscream,
+  CreamAfterSun,
+  SuntanOil,
+  SprayTanning,
+  HydrophilicOil,
+  MoisturizingMask,
+  FacialTonic,
+  MoisturizingCream,
+  MoisturizingSerum,
+  AntiAgingSerum,
+  NightSerum,
+  PerfectSerum,
+  MaskAcids,
+  MattifyingTonic,
+  EnzymePowder,
+  LipScrub,
+  FoundationBlazy1,
+  FoundationBlazy2,
+  FoundationBlazy3,
+  FoundationBlazy4,
+  Powder1,
+  Powder2,
+  Powder3,
+  Powder4,
+  Mascara1,
+  Mascara2,
+  LipOil1,
+  LipOil2,
+  LipOil3,
+  LipOil4,
+  LipStick1,
+  LipStick2,
+  LipStick3,
+  LipStick4,
+};
