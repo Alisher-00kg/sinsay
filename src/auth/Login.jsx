@@ -87,7 +87,7 @@ const Containerdiv = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
+// Что то пуш болбой атат
 const Inputdiv = styled.div`
   display: flex;
   flex-direction: column;
