@@ -38,13 +38,19 @@ const Footer = () => {
       </ArticleStyled2>
       <ArticleStyled3>
         <p className="PTag-1Art3">Newsletter</p>
-        <p className="ptag3">
-          Sign up for exclusive offers, original stories, events and more.
-        </p>
-        <input type="text" placeholder="Enter email" />
-        <Button >
-          Subscribe
-        </Button>
+        <StyledForm>
+          <input
+            type="text"
+            placeholder="Enter email"
+            style={{
+              paddingLeft: "15px",
+            }}
+          />
+          <p className="ptag3">
+            Sign up for exclusive offers, original stories, events and more.
+          </p>
+          <StyledButton type="button">Subscribe</StyledButton>
+        </StyledForm>
       </ArticleStyled3>
     </FooterStyled>
   );
@@ -53,7 +59,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterStyled = styled.footer`
-  width: 1280px;
+  width: 100%;
   height: 360px;
   background-color: #cfc9cb;
   font-weight: 400;
@@ -143,4 +149,17 @@ const ArticleStyled3 = styled.article`
 const SpanStyled = styled.span`
   display: flex;
   gap: 30px;
+`;
+
+const StyledButton = styled(Button)`
+  width: 139px;
+  height: 49px;
+  font-size: 16px;
+  font-weight: 400;
+`;
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 `;
