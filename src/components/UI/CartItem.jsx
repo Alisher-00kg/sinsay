@@ -3,23 +3,22 @@ import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 styled;
 
-export const CartItem = () => {
+export const CartItem = ({ img, title, price, amount, totalPrices }) => {
   return (
     <StyledCartWrapper>
       <StyledContainer>
         <StyledImgDiv>
-          {" "}
-          <Icons.BlackHeart></Icons.BlackHeart>
+          <img src={img} alt="image" />
         </StyledImgDiv>
-        <StyledTitle>PURITO All Care Recovery Cica-Aid patches</StyledTitle>
+        <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
-          <StyledSpan>$8.80</StyledSpan>
+          <StyledSpan>${price}</StyledSpan>
           <div>
             <StyledButton>-</StyledButton>
-            <StyledButton>1</StyledButton>
+            <StyledButton>{amount}</StyledButton>
             <StyledButton>+</StyledButton>
           </div>
-          <StyledSpan>$8.80</StyledSpan>
+          <StyledSpan>${totalPrices}</StyledSpan>
           <StyledBasket></StyledBasket>
         </StyledFouritemsWrapper>
       </StyledContainer>
@@ -27,10 +26,11 @@ export const CartItem = () => {
   );
 };
 
-const StyledCartWrapper = styled.div`
+const StyledCartWrapper = styled.li`
   border-bottom: 2px solid rgb(0, 0, 0);
   width: 1220px;
   height: 205px;
+  list-style: none;
   padding: 26px 40px 23px 57px;
 `;
 
