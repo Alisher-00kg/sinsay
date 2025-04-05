@@ -3,7 +3,7 @@ import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 styled;
 
-export const CartItem = ({ img, title, price, amount, totalPrices }) => {
+export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
   return (
     <StyledCartWrapper>
       <StyledContainer>
