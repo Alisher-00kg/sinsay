@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "../components/UI/Button";
 
-export const Input = () => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -44,18 +44,20 @@ export const Input = () => {
         <h2>Login</h2>
         <Formdiv onSubmit={handleSubmit}>
           <Emaildiv>
-            <label>Email</label>
+            <label htmlFor="email">Email</label>{" "}
             <input
               type="email"
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </Emaildiv>
           <Passwordiv>
-            <label>Password</label>
+            <label htmlFor="password">Password</label>{" "}
             <input
               type="password"
+              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -65,7 +67,10 @@ export const Input = () => {
           {error && <p style={{ color: "red" }}>{error}</p>}
           <Signin>
             <h4>Forgot your password</h4>
-            <Button type="submit" style={{ width: 144, height: 50 }}>
+            <Button
+              type="submit"
+              style={{ width: 174, height: 72, fontSize: 27 }}
+            >
               Sign In
             </Button>
           </Signin>
@@ -76,13 +81,13 @@ export const Input = () => {
 };
 
 const Containerdiv = styled.div`
-    width: 100%;
-    height 600px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    // gap:123;
-    `;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Inputdiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,48 +96,66 @@ const Inputdiv = styled.div`
   width: 542px;
   height: 543px;
   gap: 50px;
+
+  h2 {
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
 `;
+
 const Emaildiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
+
   label {
     cursor: pointer;
     font-weight: 500;
   }
+
   input {
     width: 100%;
     height: 80px;
+    padding-left: 20px;
   }
 `;
+
 const Passwordiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
+
   label {
     cursor: pointer;
     font-weight: 500;
   }
+
   input {
     width: 100%;
     height: 80px;
+    padding-left: 20px;
   }
 `;
+
 const Formdiv = styled.form`
   display: flex;
   flex-direction: column;
   gap: 30px;
   width: 100%;
 `;
+
 const Signin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
   h4 {
     letter-spacing: 0%;
+    font-size: 21px;
+    line-height: 120%;
     font-weight: 500;
     cursor: pointer;
   }
