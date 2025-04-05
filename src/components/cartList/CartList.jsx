@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CartItem } from "../UI/CartItem";
-import { Button } from "../UI/Button";
-import Footer from "../Footer";
+import { CartItem } from "./UI/CartItem";
+import { Button } from "./UI/Button";
+import Footer from "./Footer";
 styled;
 
 const CartList = () => {
