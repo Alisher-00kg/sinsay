@@ -1,10 +1,9 @@
 import React from "react";
 import { Button } from "../UI/Button";
-import IconButton from "../UI/IconButton";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 
-export const WishListItem = ({ image, title, price }) => {
+export const MainCard = ({ image, title, price }) => {
   return (
     <StyledLi>
       <div>
@@ -14,21 +13,15 @@ export const WishListItem = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <Icons.BlackHeart />
+          <Icons.BuyHeart />
         </StyledDivConPrice>
         <StyledButton>Add to cart</StyledButton>
-        <DivDelete>
-          <StyledIconBtn>
-            <Icons.DeleteBasket />
-            Delete
-          </StyledIconBtn>
-        </DivDelete>
       </div>
     </StyledLi>
   );
 };
 const StyledLi = styled.li`
-  width: 413px;
+  width: 305px;
   list-style: none;
   display: flex;
   align-items: flex-start;
@@ -69,18 +62,4 @@ const StyledButton = styled(Button)`
   line-height: 120%;
   text-align: left;
   margin-top: 18px;
-`;
-const DivDelete = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  margin-top: 20px;
-`;
-const StyledIconBtn = styled(IconButton)`
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 120%;
-  text-align: center;
 `;
