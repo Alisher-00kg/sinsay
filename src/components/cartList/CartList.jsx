@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { CartItem } from "../UI/CartItem";
 import { Button } from "../UI/Button";
 
-styled;
-
 const CartList = () => {
   return (
     <StyledContainer>

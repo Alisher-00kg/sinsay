@@ -2,7 +2,6 @@ import React from "react";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
-styled;
 
 export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
   return (
@@ -15,42 +14,9 @@ export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
           <StyledButtDiv>
-            <IconButton
-              style={{
-                background: "rgb(207, 201, 203)",
-                height: "45px",
-                width: "36px",
-                fontSize: "21px",
-                fontWeight: "400",
-                lineHeight: "120%",
-              }}
-            >
-              -
-            </IconButton>
-            <IconButton
-              style={{
-                background: "rgb(207, 201, 203)",
-                height: "45px",
-                width: "36px",
-                fontSize: "21px",
-                fontWeight: "400",
-                lineHeight: "120%",
-              }}
-            >
-              {amount}
-            </IconButton>
-            <IconButton
-              style={{
-                background: "rgb(207, 201, 203)",
-                height: "45px",
-                width: "36px",
-                fontSize: "21px",
-                fontWeight: "400",
-                lineHeight: "120%",
-              }}
-            >
-              +
-            </IconButton>
+            <StyledIconButton>-</StyledIconButton>
+            <StyledSpan>{amount}1</StyledSpan>
+            <StyledIconButton>+</StyledIconButton>
           </StyledButtDiv>
           <StyledSpan>${totalPrices}</StyledSpan>
           <IconButton
@@ -110,10 +76,18 @@ const StyledButtDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgb(207, 201, 203);
 `;
 
 const StyledSpan = styled.span`
   font-size: 21px;
   font-weight: 400;
   max-width: 45px;
+`;
+const StyledIconButton = styled(IconButton)`
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 120%;
+  height: 45px;
+  width: 36px;
 `;
