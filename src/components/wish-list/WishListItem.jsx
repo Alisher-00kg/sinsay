@@ -44,6 +44,7 @@ const StyledImg = styled.img`
   height: 100%;
 `;
 const StyledP = styled.p`
+  height: 50px;
   font-size: 21px;
   font-weight: 400;
   line-height: 120%;
