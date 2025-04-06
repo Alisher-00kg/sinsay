@@ -1,6 +1,7 @@
 import React from "react";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
+import IconButton from "./IconButton";
 styled;
 
 export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
@@ -13,13 +14,49 @@ export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
         <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
-          <div>
-            <StyledButton>-</StyledButton>
-            <StyledButton>{amount}</StyledButton>
-            <StyledButton>+</StyledButton>
-          </div>
+          <StyledButtDiv>
+            <IconButton
+              style={{
+                background: "rgb(207, 201, 203)",
+                height: "45px",
+                width: "36px",
+                fontSize: "21px",
+                fontWeight: "400",
+                lineHeight: "120%",
+              }}
+            >
+              -
+            </IconButton>
+            <IconButton
+              style={{
+                background: "rgb(207, 201, 203)",
+                height: "45px",
+                width: "36px",
+                fontSize: "21px",
+                fontWeight: "400",
+                lineHeight: "120%",
+              }}
+            >
+              {amount}
+            </IconButton>
+            <IconButton
+              style={{
+                background: "rgb(207, 201, 203)",
+                height: "45px",
+                width: "36px",
+                fontSize: "21px",
+                fontWeight: "400",
+                lineHeight: "120%",
+              }}
+            >
+              +
+            </IconButton>
+          </StyledButtDiv>
           <StyledSpan>${totalPrices}</StyledSpan>
-          <StyledBasket></StyledBasket>
+          <IconButton
+            icon={<Icons.DeleteBasket />}
+            style={{ paddingBottom: "3px" }}
+          ></IconButton>
         </StyledFouritemsWrapper>
       </StyledContainer>
     </StyledCartWrapper>
@@ -54,7 +91,7 @@ const StyledImgDiv = styled.div`
 
 const StyledTitle = styled.p`
   text-align: left;
-  width: 272px;
+  max-width: 272px;
   display: flex;
   align-items: center;
   height: 46px;
@@ -69,22 +106,14 @@ const StyledFouritemsWrapper = styled.div`
   gap: 75px;
 `;
 
-const StyledButton = styled.button`
-  border: none;
-  width: 36px;
-  height: 45px;
-  background: rgb(207, 201, 203);
-  font-size: 21px;
-  font-weight: 400;
-`;
-
-const StyledBasket = styled(Icons.DeleteBasket)`
-  width: 18px;
-  height: 24px;
-  padding-bottom: 1px;
+const StyledButtDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledSpan = styled.span`
   font-size: 21px;
   font-weight: 400;
+  max-width: 45px;
 `;

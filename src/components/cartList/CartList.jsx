@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CartItem } from "./UI/CartItem";
-import { Button } from "./UI/Button";
-import Footer from "./Footer";
+import { CartItem } from "../UI/CartItem";
+import { Button } from "../UI/Button";
+
 styled;
 
 const CartList = () => {
@@ -52,11 +52,10 @@ const StyledH1 = styled.div`
   line-height: 120%;
 `;
 const StyledContainer = styled.div`
-  height: auto;
-  width: auto;
   display: flex;
   flex-direction: column;
   gap: 110px;
+  align-items: center;
 `;
 
 const StyledDIv = styled.div`
@@ -64,17 +63,15 @@ const StyledDIv = styled.div`
   height: 36px;
   padding: 50px 135px 25px 59px;
   display: flex;
-  gap: 625px;
+  gap: 590px;
   border-bottom: 2px solid rgb(0, 0, 0);
-`;
-const StyledPrices = styled.div`
-  width: 377px;
-  height: 100%;
-  display: flex;
-  gap: 70px;
   font-size: 21px;
   font-weight: 400;
   line-height: 120%;
+`;
+const StyledPrices = styled.div`
+  display: flex;
+  gap: 78px;
 `;
 const StyledButtonCheck = styled(Button)`
   width: 182px;
@@ -86,9 +83,9 @@ const StyledShopping = styled.div`
   align-items: end;
   width: 1222px;
   height: 183px;
-  padding: 56px 0px 78px 58px;
-  margin-left: 20px;
-  gap: 419px;
+  padding: 56px 0px 78px 45px;
+  margin-left: 0px;
+  gap: 415px;
 `;
 
 const StyledContiniueButton = styled(Button)`
