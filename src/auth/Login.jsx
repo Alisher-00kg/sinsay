@@ -43,7 +43,7 @@ export const Login = () => {
       <Inputdiv>
         <h2>Login</h2>
         <Formdiv onSubmit={handleSubmit}>
-          <Emaildiv>
+          <Authordiv>
             <label htmlFor="email">Email</label>{" "}
             <input
               type="email"
@@ -51,9 +51,10 @@ export const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Enter your email ..."
             />
-          </Emaildiv>
-          <Passwordiv>
+          </Authordiv>
+          <Authordiv>
             <label htmlFor="password">Password</label>{" "}
             <input
               type="password"
@@ -61,8 +62,9 @@ export const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Enter your password ..."
             />
-          </Passwordiv>
+          </Authordiv>
 
           {error && <p style={{ color: "red" }}>{error}</p>}
           <Signin>
@@ -106,7 +108,7 @@ const Inputdiv = styled.div`
   }
 `;
 
-const Emaildiv = styled.div`
+const Authordiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -114,29 +116,14 @@ const Emaildiv = styled.div`
   label {
     cursor: pointer;
     font-weight: 500;
+    font-size: 24px;
   }
 
   input {
     width: 100%;
     height: 80px;
     padding-left: 20px;
-  }
-`;
-
-const Passwordiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  label {
-    cursor: pointer;
-    font-weight: 500;
-  }
-
-  input {
-    width: 100%;
-    height: 80px;
-    padding-left: 20px;
+    font-size: 24px;
   }
 `;
 
