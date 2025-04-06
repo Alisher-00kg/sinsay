@@ -14,12 +14,12 @@ export const MainPage = () => {
   );
 };
 const StyledContentContainer = styled.div`
-  width: 77.9%;
+  width: 86%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 57px;
   margin: 0 auto;
   padding-left: 1%
 `;

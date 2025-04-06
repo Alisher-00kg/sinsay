@@ -38,9 +38,9 @@ export const Slider = () => {
 const SliderWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 370px;
+  height: 315px;
   margin: 0 auto;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 `;
 const SlideContainer = styled.div`
   width: 100%;
