@@ -18,7 +18,7 @@ export const MainContent = () => {
     </DataCardContainer>
   );
 };
-const DataCardContainer = styled.div`
+const DataCardContainer = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;

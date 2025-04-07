@@ -7,7 +7,11 @@ import { Icons } from "../assets/icons/icons";
 
 export const About = () => {
   useEffect(() => {
+<<<<<<< HEAD
     AOS.init({ duration: 1000 });
+=======
+    AOS.init({ duration: 1000, once: true });
+>>>>>>> eda4ef8380ab1fcc89c12dbffb956af5515075a5
   }, []);
   return (
     <article>
@@ -21,25 +25,25 @@ export const About = () => {
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
         >
-          <StyledSpan style={{ textAlign: "end" }}>
+          <EndAlignedSpan>
             I wanted to create a radical new skincare brand. For too long, the
             world of skincare had been defined by exaggerated promises and
             suspect chemicals. After gathering a team of health and skincare
             experts, we set out together to challenge the industry. That meant
             going back to basics.
-          </StyledSpan>
-          <StyledPTag style={{ textAlign: "end" }}>
+          </EndAlignedSpan>
+          <EndAlignedPTag>
             We wanted to take an autonomous approach. Working from the ground
             up, we built an online-only, direct to customer model, which means
             we can sell premium products with the highest quality ingredients at
             a great price.
-          </StyledPTag>
-          <StyledPTag style={{ textAlign: "end" }}>
+          </EndAlignedPTag>
+          <EndAlignedPTag>
             Staying true to our philosophy of simplicity and transparency, we
             intend to remain uncompromising in our mission to offer consumers a
             premium natural skincare alternative. <br />
             <StyledSpan>Ning Li, Typology Founder</StyledSpan>
-          </StyledPTag>
+          </EndAlignedPTag>
         </div>
       </FirstBox>
       <SecondBox>
@@ -171,6 +175,12 @@ const StyledSpan = styled.span`
   text-align: left;
   font-weight: 500;
 `;
+const EndAlignedSpan = styled(StyledSpan)`
+  text-align: end;
+`;
+const EndAlignedPTag = styled(StyledPTag)`
+  text-align: end;
+`;
 const SecondBox = styled.div`
   width: 100%;
   display: flex;
@@ -206,7 +216,6 @@ const ThirdBox = styled.div`
   display: flex;
   justify-content: center;
   gap: 78px;
-  /* padding: 0 76px; */
   .cont {
     display: flex;
     flex-direction: column;
