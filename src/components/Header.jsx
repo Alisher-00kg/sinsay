@@ -2,15 +2,13 @@ import React from "react";
 import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./UI/IconButton";
-import { Logo } from "../assets/images/images";
 
 export const Header = () => {
   return (
     <StyledHeader>
       <ContainerHeader>
         <IconButton>
-          <StyledImg src={Logo} alt="logo" />
-          <IconBurgerMenu />
+          <Icons.Logo />
         </IconButton>
         <StyledH4>Sinsay</StyledH4>
         <ContainerIconsBtn>
@@ -18,6 +16,7 @@ export const Header = () => {
           <Icons.HeaderProfile />
           <Icons.HeaderHeart />
           <Icons.HeaderBag />
+          <IconBurgerMenu />
         </ContainerIconsBtn>
       </ContainerHeader>
     </StyledHeader>
@@ -32,7 +31,7 @@ const StyledHeader = styled.header`
 `;
 const ContainerHeader = styled.div`
   width: 96%;
-  height: 70px;
+  height: 82px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,10 +42,6 @@ const IconBurgerMenu = styled(Icons.BurgerMenu)`
   width: 34px;
   height: 25px;
   margin-left: 20px;
-`;
-const StyledImg = styled.img`
-  width: 84px;
-  height: 45px;
 `;
 const StyledH4 = styled.h4`
   font-size: 36px;
