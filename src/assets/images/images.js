@@ -1,3 +1,4 @@
+export { default as Logo } from "./sinsayLogo.png";
 export { default as FirstBanner } from "./banner/first.jpg";
 export { default as SecondBanner } from "./banner/second.jpg";
 export { default as ThirdBanner } from "./banner/third.jpg";
