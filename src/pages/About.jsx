@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import styled from "styled-components";
 import { Unplush1, Unplush2, Unplush3 } from "../assets/images/images";
 import { Icons } from "../assets/icons/icons";
 
 export const About = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <article>
       <FirstBox>
@@ -70,10 +75,24 @@ export const About = () => {
             </StyledPTag>
           </div>
         </div>
-        <img className="image" src={Unplush2} alt="photo" />
+        <img
+          className="image"
+          src={Unplush2}
+          alt="photo"
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        />
       </SecondBox>
       <ThirdBox>
-        <img className="image" src={Unplush3} alt="photo" />
+        <img
+          className="image"
+          src={Unplush3}
+          alt="photo"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        />
         <div
           className="cont"
           data-aos="fade-left"
@@ -120,12 +139,12 @@ const FirstBox = styled.div`
   background-image: url(${Unplush1});
   background-repeat: no-repeat;
   background-size: 100% 100vh;
+  width: 84%;
   height: 100vh;
   display: flex;
   justify-content: center;
   gap: 20%;
   align-items: center;
-  /* padding: 60px; */
   margin: 0 auto;
   .f_box {
     height: 70vh;
@@ -156,8 +175,7 @@ const SecondBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  /* padding: 0 76px; */
+  gap: 8.5%;
   .container {
     display: flex;
     flex-direction: column;
