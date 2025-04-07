@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { CartItem } from "../UI/CartItem";
-import { Button } from "../UI/Button";
+import { CartItem } from "../../components/UI/CartItem";
+import { Button } from "../../components/UI/Button";
 
 const CartList = () => {
   return (
