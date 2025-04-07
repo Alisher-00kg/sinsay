@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../UI/Button";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
+import IconButton from "./IconButton";
 
 export const MainCard = ({ image, title, price }) => {
   return (
@@ -13,7 +14,9 @@ export const MainCard = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <Icons.BuyHeart />
+          <IconButton>
+            <Icons.BuyHeart />
+          </IconButton>
         </StyledDivConPrice>
         <StyledButton>Add to cart</StyledButton>
       </div>

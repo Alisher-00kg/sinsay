@@ -1,7 +1,6 @@
 import React from "react";
-import { Slider } from "./slider/Slider";
-import { MainContent } from "./MainContent";
-import Footer from "./Footer";
+import { Slider } from "../components/slider/Slider";
+import { MainContent } from "../components/MainContent";
 import styled from "styled-components";
 
 export const MainPage = () => {
@@ -9,7 +8,6 @@ export const MainPage = () => {
     <StyledContentContainer>
       <Slider />
       <MainContent />
-      <Footer />
     </StyledContentContainer>
   );
 };
@@ -21,5 +19,5 @@ const StyledContentContainer = styled.div`
   align-items: center;
   gap: 57px;
   margin: 0 auto;
-  padding-left: 1%
+  padding-left: 1%;
 `;
