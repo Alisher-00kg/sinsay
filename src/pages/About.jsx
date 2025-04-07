@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { LipOil4, LipStick4 } from "../assets/images/images";
+import { Unplush1, Unplush2, Unplush3 } from "../assets/images/images";
 import { Icons } from "../assets/icons/icons";
 
-const About = () => {
+export const About = () => {
   return (
     <article>
       <FirstBox>
         <div className="f_box">
-          <h1>ABOUT SINSEY</h1>
+          <StyledH1>ABOUT SINSEY</StyledH1>
         </div>
         <div
           className="box"
@@ -16,24 +16,25 @@ const About = () => {
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
         >
-          <p>
+          <StyledSpan style={{ textAlign: "end" }}>
             I wanted to create a radical new skincare brand. For too long, the
             world of skincare had been defined by exaggerated promises and
             suspect chemicals. After gathering a team of health and skincare
             experts, we set out together to challenge the industry. That meant
             going back to basics.
-          </p>
-          <span>
+          </StyledSpan>
+          <StyledPTag style={{ textAlign: "end" }}>
             We wanted to take an autonomous approach. Working from the ground
             up, we built an online-only, direct to customer model, which means
             we can sell premium products with the highest quality ingredients at
             a great price.
-          </span>
-          <span>
+          </StyledPTag>
+          <StyledPTag style={{ textAlign: "end" }}>
             Staying true to our philosophy of simplicity and transparency, we
             intend to remain uncompromising in our mission to offer consumers a
-            premium natural skincare alternative. Ning Li, Typology Founder
-          </span>
+            premium natural skincare alternative. <br />
+            <StyledSpan>Ning Li, Typology Founder</StyledSpan>
+          </StyledPTag>
         </div>
       </FirstBox>
       <SecondBox>
@@ -45,72 +46,67 @@ const About = () => {
         >
           <h1>OUR FORMULATIONS</h1>
           <div className="s_box">
-            <p>
+            <StyledSpan>
               Our philosophy is not to add anything to our products to make them
               stand out; instead we pare them back and distil each formula down
               to the most-essential, natural active ingredients.
-            </p>
-            <span>
+            </StyledSpan>
+            <StyledPTag>
               We're tireless in our mission to hunt down the best
               ingredients.Whether in France, around Europe or further afield in
               search of exotic extracts, they must be sourced from sustainable
               farms using gentle extraction techniques.
-            </span>
-            <span>
+            </StyledPTag>
+            <StyledPTag>
               Our formulas are simple, considered and effective. Provenance is
               important to us, so you'll always know where our ingredients come
               from. And we'll even show you how to create your own skincare
               formulations along the way.
-            </span>
-            <span>
+            </StyledPTag>
+            <StyledPTag>
               All formulations are 100% French. Our partner laboratories in
               Bergerac, Aix en Provence and Compiègne work with us to put their
               French skincare heritage to good use.
-            </span>
+            </StyledPTag>
           </div>
         </div>
-        <img className="image" src={LipOil4} alt="photo" />
+        <img className="image" src={Unplush2} alt="photo" />
       </SecondBox>
       <ThirdBox>
-        <img className="image" src={LipStick4} alt="photo" />
+        <img className="image" src={Unplush3} alt="photo" />
         <div
           className="cont"
           data-aos="fade-left"
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
         >
-          <h1>OUR FORMULATIONS</h1>
+          <h1>B CORP CERTIFICATION</h1>
           <div className="s_box">
-            <p>
-              Our philosophy is not to add anything to our products to make them
-              stand out; instead we pare them back and distil each formula down
-              to the most-essential, natural active ingredients.
-            </p>
-            <span>
-              We're tireless in our mission to hunt down the best
-              ingredients.Whether in France, around Europe or further afield in
-              search of exotic extracts, they must be sourced from sustainable
-              farms using gentle extraction techniques.
-            </span>
-            <span>
-              Our formulas are simple, considered and effective. Provenance is
-              important to us, so you'll always know where our ingredients come
-              from. And we'll even show you how to create your own skincare
-              formulations along the way.
-            </span>
-            <span>
-              All formulations are 100% French. Our partner laboratories in
-              Bergerac, Aix en Provence and Compiègne work with us to put their
-              French skincare heritage to good use.
-            </span>
+            <StyledSpan>
+              Since it began, our company has strived to become more respectful
+              of the environment, have a positive impact on society, and support
+              customers with straight-talking transparency.
+            </StyledSpan>
+            <StyledPTag>
+              Founded in 2006, the B Corp movement brings together companies
+              with a common objective: to balance purpose and profit by
+              integrating social and environmental commitments into their
+              economic models.
+            </StyledPTag>
+            <StyledPTag>
+              The idea is not to become the best in the world, but to try to be
+              better for the world. B Corp certification allows us to act on our
+              need to have a positive impact within our industry and society
+              through its implementation of concrete guidance and assessments.
+            </StyledPTag>
           </div>
         </div>
       </ThirdBox>
       <FourthBox>
-        <p>
+        <StyledPTag>
           We investigate the right ingredients for each skin typology. Our
           formulations are concise, concentrated, and made in France.
-        </p>
+        </StyledPTag>
         <div>
           <Icons.VeganOne />
           <Icons.Bcorp />
@@ -120,48 +116,48 @@ const About = () => {
     </article>
   );
 };
-
-export default About;
 const FirstBox = styled.div`
-  background-image: url(${LipOil4});
+  background-image: url(${Unplush1});
   background-repeat: no-repeat;
   background-size: 100% 100vh;
-  width: 90%;
   height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20%;
   align-items: center;
-  padding: 60px;
+  /* padding: 60px; */
   margin: 0 auto;
   .f_box {
     height: 70vh;
-    h1 {
-      font-size: 61px;
-      font-weight: 500;
-    }
   }
   .box {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 50vh;
+    width: 427px;
+    height: 60vh;
     gap: 20px;
-    p,
-    span {
-      font-size: 21px;
-      text-align: end;
-      font-weight: 500;
-    }
-    span {
-      font-weight: 400;
-    }
   }
 `;
+const StyledH1 = styled.h1`
+  font-size: 61px;
+  font-weight: 500;
+`;
+const StyledPTag = styled.p`
+  font-size: 21px;
+  font-weight: 400;
+  text-align: left;
+`;
+const StyledSpan = styled.span`
+  font-size: 21px;
+  text-align: left;
+  font-weight: 500;
+`;
 const SecondBox = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  gap: 80px;
-  padding: 0 76px;
+  justify-content: center;
+  gap: 30px;
+  /* padding: 0 76px; */
   .container {
     display: flex;
     flex-direction: column;
@@ -180,14 +176,6 @@ const SecondBox = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-    p,
-    span {
-      font-size: 21px;
-      font-weight: 500;
-    }
-    span {
-      font-weight: 400;
-    }
   }
   .image {
     width: 650px;
@@ -196,10 +184,11 @@ const SecondBox = styled.div`
   }
 `;
 const ThirdBox = styled.div`
+  width: 100%;
   display: flex;
-  gap: 44px;
   justify-content: center;
-  height: 808px;
+  gap: 78px;
+  /* padding: 0 76px; */
   .cont {
     display: flex;
     flex-direction: column;
@@ -212,18 +201,10 @@ const ThirdBox = styled.div`
       font-weight: 500;
     }
     .s_box {
-      width: 454px;
+      width: 434px;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      p,
-      span {
-        font-size: 21px;
-        font-weight: 500;
-      }
-      span {
-        font-weight: 400;
-      }
     }
   }
 `;

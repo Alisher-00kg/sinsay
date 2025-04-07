@@ -1,6 +1,9 @@
 export { default as FirstBanner } from "./banner/first.jpg";
 export { default as SecondBanner } from "./banner/second.jpg";
 export { default as ThirdBanner } from "./banner/third.jpg";
+export { default as Unplush1 } from "./unplush/unsplash1.png";
+export { default as Unplush2 } from "./unplush/unsplash2.png";
+export { default as Unplush3 } from "./unplush/unsplash3.png";
 export { default as Sunscream } from "./face-care/Sunscream.webp";
 export { default as CreamAfterSun } from "./face-care/CreamAfterSun.webp";
 export { default as SuntanOil } from "./face-care/SuntanOil.webp";
