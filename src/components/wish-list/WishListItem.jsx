@@ -14,7 +14,9 @@ export const WishListItem = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <Icons.BlackHeart />
+          <IconButton>
+            <Icons.BlackHeart />
+          </IconButton>
         </StyledDivConPrice>
         <StyledButton>Add to cart</StyledButton>
         <DivDelete>
