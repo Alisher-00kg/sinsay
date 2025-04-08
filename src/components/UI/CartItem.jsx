@@ -3,19 +3,23 @@ import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
 
-export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
+export const CartItem = ({ image, title, price, amount, totalPrices, id }) => {
   return (
     <StyledCartWrapper>
       <StyledContainer>
         <StyledImgDiv>
-          <img src={img} alt="image" />
+          <img
+            src={image}
+            alt="image"
+            style={{ width: "100%", height: "100%" }}
+          />
         </StyledImgDiv>
         <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
           <StyledButtDiv>
             <StyledIconButton>-</StyledIconButton>
-            <StyledSpan>{amount}1</StyledSpan>
+            <StyledSpan>{amount}</StyledSpan>
             <StyledIconButton>+</StyledIconButton>
           </StyledButtDiv>
           <StyledSpan>${totalPrices}</StyledSpan>
