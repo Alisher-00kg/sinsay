@@ -14,6 +14,7 @@ export const About = () => {
       <FirstBox>
         <div className="f_box">
           <StyledH1>ABOUT SINSEY</StyledH1>
+          Salam yzy-chuu
         </div>
         <div
           className="box"
