@@ -4,7 +4,7 @@ import { CartItem } from "../../components/UI/CartItem";
 import { Button } from "../../components/UI/Button";
 import { ProductsContext } from "../../context/ProductsProvider";
 
-const CartList = () => {
+const CartList2 = () => {
   const { state } = useContext(ProductsContext);
   return (
     <StyledContainer>

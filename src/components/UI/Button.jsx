@@ -3,9 +3,16 @@ import styled from "styled-components";
 
 export const Button = ({ children, onClick, disabled, type, ...props }) => {
   return (
-    <StyledButton onClick={onClick} disabled={disabled} type={type} {...props}>
-      {children}
-    </StyledButton>
+    <div>
+      <StyledButton
+        onClick={onClick}
+        disabled={disabled}
+        type={type}
+        {...props}
+      >
+        {children}
+      </StyledButton>
+    </div>
   );
 };
 const StyledButton = styled.button`

@@ -20,6 +20,9 @@ export const WishListItem = ({ image, title, price, id }) => {
             icon={<Icons.BlackHeart />}
             onClick={() => dispatch({ type: "addTofavor", id: id })}
           ></IconButton>
+          <IconButton>
+            <Icons.BlackHeart />
+          </IconButton>
         </StyledDivConPrice>
         <StyledButton
           onClick={() => dispatch({ type: "addCardFromFavor", id: id })}
@@ -55,6 +58,7 @@ const StyledImg = styled.img`
   height: 100%;
 `;
 const StyledP = styled.p`
+  height: 50px;
   font-size: 21px;
   font-weight: 400;
   line-height: 120%;

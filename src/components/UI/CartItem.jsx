@@ -3,6 +3,7 @@ import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
 import { ProductsContext } from "../../context/ProductsProvider";
+styled;
 
 export const CartItem = ({ image, title, price, amount, totalPrices, id }) => {
   const { dispatch } = useContext(ProductsContext);
@@ -72,7 +73,7 @@ const StyledImgDiv = styled.div`
 
 const StyledTitle = styled.p`
   text-align: left;
-  max-width: 272px;
+  width: 272px;
   display: flex;
   align-items: center;
   height: 46px;
@@ -87,11 +88,19 @@ const StyledFouritemsWrapper = styled.div`
   gap: 85px;
 `;
 
-const StyledButtDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const StyledButton = styled.button`
+  border: none;
+  width: 36px;
+  height: 45px;
   background: rgb(207, 201, 203);
+  font-size: 21px;
+  font-weight: 400;
+`;
+
+const StyledBasket = styled(Icons.DeleteBasket)`
+  width: 18px;
+  height: 24px;
+  padding-bottom: 1px;
 `;
 
 const StyledSpan = styled.span`
