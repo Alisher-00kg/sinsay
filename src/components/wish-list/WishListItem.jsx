@@ -14,7 +14,9 @@ export const WishListItem = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <Icons.BlackHeart />
+          <IconButton>
+            <Icons.BlackHeart />
+          </IconButton>
         </StyledDivConPrice>
         <StyledButton>Add to cart</StyledButton>
         <DivDelete>
@@ -44,6 +46,7 @@ const StyledImg = styled.img`
   height: 100%;
 `;
 const StyledP = styled.p`
+  height: 50px;
   font-size: 21px;
   font-weight: 400;
   line-height: 120%;
