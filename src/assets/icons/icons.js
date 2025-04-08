@@ -1,4 +1,3 @@
-import Logo from "../icons/logo.svg?react";
 import DeleteBasket from "../icons/delete-basket.svg?react";
 import Bcorp from "../icons/b-corp.svg?react";
 import BlackHeart from "../icons/black-heart.svg?react";
@@ -15,7 +14,6 @@ import VeganOne from "../icons/vegan-1.svg?react";
 import VeganTwo from "../icons/vegan-2.svg?react";
 
 export const Icons = {
-  Logo,
   DeleteBasket,
   Bcorp,
   BlackHeart,

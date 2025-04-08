@@ -1,7 +1,7 @@
 import React from "react";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
-import IconButton from "./IconButton";
+styled;
 
 export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
   return (
@@ -13,16 +13,13 @@ export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
         <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
-          <StyledButtDiv>
-            <StyledIconButton>-</StyledIconButton>
-            <StyledSpan>{amount}1</StyledSpan>
-            <StyledIconButton>+</StyledIconButton>
-          </StyledButtDiv>
+          <div>
+            <StyledButton>-</StyledButton>
+            <StyledButton>{amount}</StyledButton>
+            <StyledButton>+</StyledButton>
+          </div>
           <StyledSpan>${totalPrices}</StyledSpan>
-          <IconButton
-            icon={<Icons.DeleteBasket />}
-            style={{ paddingBottom: "3px" }}
-          ></IconButton>
+          <StyledBasket></StyledBasket>
         </StyledFouritemsWrapper>
       </StyledContainer>
     </StyledCartWrapper>
@@ -57,7 +54,7 @@ const StyledImgDiv = styled.div`
 
 const StyledTitle = styled.p`
   text-align: left;
-  max-width: 272px;
+  width: 272px;
   display: flex;
   align-items: center;
   height: 46px;
@@ -72,22 +69,22 @@ const StyledFouritemsWrapper = styled.div`
   gap: 75px;
 `;
 
-const StyledButtDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const StyledButton = styled.button`
+  border: none;
+  width: 36px;
+  height: 45px;
   background: rgb(207, 201, 203);
+  font-size: 21px;
+  font-weight: 400;
+`;
+
+const StyledBasket = styled(Icons.DeleteBasket)`
+  width: 18px;
+  height: 24px;
+  padding-bottom: 1px;
 `;
 
 const StyledSpan = styled.span`
   font-size: 21px;
   font-weight: 400;
-  max-width: 45px;
-`;
-const StyledIconButton = styled(IconButton)`
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 120%;
-  height: 45px;
-  width: 36px;
 `;
