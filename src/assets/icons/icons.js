@@ -12,6 +12,7 @@ import InstagramLogo from "../icons/instagram-logo.svg?react";
 import TwitterLogo from "../icons/twitter-logo.svg?react";
 import VeganOne from "../icons/vegan-1.svg?react";
 import VeganTwo from "../icons/vegan-2.svg?react";
+import Logo from "../icons/logo.svg?react";
 
 export const Icons = {
   DeleteBasket,
@@ -28,4 +29,5 @@ export const Icons = {
   TwitterLogo,
   VeganOne,
   VeganTwo,
+  Logo,
 };
