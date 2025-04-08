@@ -7,11 +7,7 @@ import { Icons } from "../assets/icons/icons";
 
 export const About = () => {
   useEffect(() => {
-<<<<<<< HEAD
-    AOS.init({ duration: 1000 });
-=======
     AOS.init({ duration: 1000, once: true });
->>>>>>> eda4ef8380ab1fcc89c12dbffb956af5515075a5
   }, []);
   return (
     <article>
