@@ -1,43 +1,27 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
-import { ProductsContext } from "../../context/ProductsProvider";
-styled;
 
-export const CartItem = ({ image, title, price, amount, totalPrices, id }) => {
-  const { dispatch } = useContext(ProductsContext);
+export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
   return (
     <StyledCartWrapper>
       <StyledContainer>
         <StyledImgDiv>
-          <img
-            src={image}
-            alt="image"
-            style={{ height: "100%", width: "100%" }}
-          />
+          <img src={img} alt="image" />
         </StyledImgDiv>
         <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
           <StyledButtDiv>
-            <StyledIconButton
-              onClick={() => dispatch({ type: "decrement", id: id })}
-            >
-              -
-            </StyledIconButton>
-            <StyledSpan>{amount}</StyledSpan>
-            <StyledIconButton
-              onClick={() => dispatch({ type: "increament", id: id })}
-            >
-              +
-            </StyledIconButton>
+            <StyledIconButton>-</StyledIconButton>
+            <StyledSpan>{amount}1</StyledSpan>
+            <StyledIconButton>+</StyledIconButton>
           </StyledButtDiv>
           <StyledSpan>${totalPrices}</StyledSpan>
           <IconButton
             icon={<Icons.DeleteBasket />}
             style={{ paddingBottom: "3px" }}
-            onClick={() => dispatch({ type: "deleteFromBasket", id: id })}
           ></IconButton>
         </StyledFouritemsWrapper>
       </StyledContainer>
@@ -73,7 +57,7 @@ const StyledImgDiv = styled.div`
 
 const StyledTitle = styled.p`
   text-align: left;
-  width: 272px;
+  max-width: 272px;
   display: flex;
   align-items: center;
   height: 46px;
@@ -85,28 +69,20 @@ const StyledTitle = styled.p`
 const StyledFouritemsWrapper = styled.div`
   align-items: center;
   display: flex;
-  gap: 85px;
+  gap: 75px;
 `;
 
-const StyledButton = styled.button`
-  border: none;
-  width: 36px;
-  height: 45px;
+const StyledButtDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgb(207, 201, 203);
-  font-size: 21px;
-  font-weight: 400;
-`;
-
-const StyledBasket = styled(Icons.DeleteBasket)`
-  width: 18px;
-  height: 24px;
-  padding-bottom: 1px;
 `;
 
 const StyledSpan = styled.span`
   font-size: 21px;
   font-weight: 400;
-  max-width: 40px;
+  max-width: 45px;
 `;
 const StyledIconButton = styled(IconButton)`
   font-size: 21px;
