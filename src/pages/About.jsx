@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styled from "styled-components";
-import { Unplush1, Unplush2, Unplush3 } from "../assets/images/images";
 import { Icons } from "../assets/icons/icons";
+import { Unsplash1, Unsplash2, Unsplash3 } from "../assets/images/images";
 
 export const About = () => {
   useEffect(() => {
@@ -77,7 +77,7 @@ export const About = () => {
         </div>
         <img
           className="image"
-          src={Unplush2}
+          src={Unsplash2}
           alt="photo"
           data-aos="fade-left"
           data-aos-offset="300"
@@ -87,7 +87,7 @@ export const About = () => {
       <ThirdBox>
         <img
           className="image"
-          src={Unplush3}
+          src={Unsplash3}
           alt="photo"
           data-aos="fade-right"
           data-aos-offset="300"
@@ -136,7 +136,7 @@ export const About = () => {
   );
 };
 const FirstBox = styled.div`
-  background-image: url(${Unplush1});
+  background-image: url(${Unsplash1});
   background-repeat: no-repeat;
   background-size: 100% 100vh;
   width: 84%;
