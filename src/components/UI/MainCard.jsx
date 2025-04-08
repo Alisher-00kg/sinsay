@@ -5,7 +5,7 @@ import styled from "styled-components";
 import IconButton from "./IconButton";
 import { ProductsContext } from "../../context/ProductsProvider";
 
-export const MainCard = ({ image, title, price, id }) => {
+export const MainCard = ({ image, title, price, id, isFavorite }) => {
   const { dispatch } = useContext(ProductsContext);
   return (
     <StyledLi>
@@ -16,8 +16,8 @@ export const MainCard = ({ image, title, price, id }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <IconButton>
-            <Icons.BuyHeart />
+          <IconButton onClick={() => dispatch({ type: "addTofavor", id: id })}>
+            {isFavorite ? <Icons.BlackHeart /> : <Icons.BuyHeart />}
           </IconButton>
         </StyledDivConPrice>
         <StyledButton
