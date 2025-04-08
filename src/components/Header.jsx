@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./UI/IconButton";
+import { ProductsContext } from "../context/ProductsProvider";
 
 export const Header = () => {
+  const { setBool } = useContext(ProductsContext);
   return (
     <StyledHeader>
       <ContainerHeader>
@@ -13,9 +15,9 @@ export const Header = () => {
         <StyledH4>Sinsay</StyledH4>
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
-          <Icons.HeaderProfile />
-          <Icons.HeaderHeart />
-          <Icons.HeaderBag />
+          <Icons.HeaderProfile onClick={() => setBool("MainPage")} />
+          <Icons.HeaderHeart onClick={() => setBool("WishList")} />
+          <Icons.HeaderBag onClick={() => setBool("CartList")} />
           <IconBurgerMenu />
         </ContainerIconsBtn>
       </ContainerHeader>

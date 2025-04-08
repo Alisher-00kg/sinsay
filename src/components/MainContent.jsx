@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { data } from "../utils/constants/CardItem";
 import { MainCard } from "./UI/MainCard";
+import { useContext } from "react";
+import { ProductsContext } from "../context/ProductsProvider";
 
 export const MainContent = () => {
+  const { state } = useContext(ProductsContext);
   return (
     <DataCardContainer>
-      {data.map((category) => (
+      {state.mainMassive.map((category) => (
         <CategoryCardContainer key={category.id}>
           <StyledH1>{category.subTitle}</StyledH1>
           <ProductCardContainer>

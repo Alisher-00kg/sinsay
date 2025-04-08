@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
+import { ProductsContext } from "../../context/ProductsProvider";
 
-export const CartItem = ({ img, title, price, amount, totalPrices, id }) => {
+export const CartItem = ({ image, title, price, amount, totalPrices, id }) => {
+  const { dispatch } = useContext(ProductsContext);
   return (
     <StyledCartWrapper>
       <StyledContainer>
         <StyledImgDiv>
-          <img src={img} alt="image" />
+          <img
+            src={image}
+            alt="image"
+            style={{ height: "100%", width: "100%" }}
+          />
         </StyledImgDiv>
         <StyledTitle>{title}</StyledTitle>
         <StyledFouritemsWrapper>
           <StyledSpan>${price}</StyledSpan>
           <StyledButtDiv>
-            <StyledIconButton>-</StyledIconButton>
-            <StyledSpan>{amount}1</StyledSpan>
-            <StyledIconButton>+</StyledIconButton>
+            <StyledIconButton
+              onClick={() => dispatch({ type: "decrement", id: id })}
+            >
+              -
+            </StyledIconButton>
+            <StyledSpan>{amount}</StyledSpan>
+            <StyledIconButton
+              onClick={() => dispatch({ type: "increament", id: id })}
+            >
+              +
+            </StyledIconButton>
           </StyledButtDiv>
           <StyledSpan>${totalPrices}</StyledSpan>
           <IconButton
             icon={<Icons.DeleteBasket />}
             style={{ paddingBottom: "3px" }}
+            onClick={() => dispatch({ type: "deleteFromBasket", id: id })}
           ></IconButton>
         </StyledFouritemsWrapper>
       </StyledContainer>
@@ -69,7 +84,7 @@ const StyledTitle = styled.p`
 const StyledFouritemsWrapper = styled.div`
   align-items: center;
   display: flex;
-  gap: 75px;
+  gap: 85px;
 `;
 
 const StyledButtDiv = styled.div`
@@ -82,7 +97,7 @@ const StyledButtDiv = styled.div`
 const StyledSpan = styled.span`
   font-size: 21px;
   font-weight: 400;
-  max-width: 45px;
+  max-width: 40px;
 `;
 const StyledIconButton = styled(IconButton)`
   font-size: 21px;

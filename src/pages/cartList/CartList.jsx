@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { CartItem } from "../../components/UI/CartItem";
 import { Button } from "../../components/UI/Button";
+import { ProductsContext } from "../../context/ProductsProvider";
 
 const CartList = () => {
+  const { state } = useContext(ProductsContext);
   return (
     <StyledContainer>
       <CartlistStyled>
@@ -17,15 +19,31 @@ const CartList = () => {
           </StyledPrices>
         </StyledDIv>
 
-        <CartItem></CartItem>
-        <CartItem></CartItem>
-        <CartItem></CartItem>
+        {state?.basketMassive?.map((item) => {
+          return (
+            <CartItem
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              title={item.title}
+              price={item.price}
+              amount={item.amount}
+              totalPrices={item.totalPrice}
+            ></CartItem>
+          );
+        })}
       </CartlistStyled>
       <StyledShopping>
         <StyledContiniueButton>Continue shopping</StyledContiniueButton>
         <StyledCheckoutDiv>
           <StyledTaxContainer>
-            <StyledP>Subtotal: $86.00</StyledP>
+            <StyledP>
+              Subtotal: $
+              {state.basketMassive.reduce(
+                (acc, item) => acc + item.totalPrice,
+                0
+              )}
+            </StyledP>
             <p>Tax included. Shipping calculated at checkout.</p>
           </StyledTaxContainer>
           <StyledButtonCheck>Checkout</StyledButtonCheck>
@@ -54,6 +72,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   gap: 110px;
   align-items: center;
+  margin-top: 80px;
 `;
 
 const StyledDIv = styled.div`

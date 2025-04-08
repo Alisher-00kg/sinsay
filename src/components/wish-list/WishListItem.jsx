@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../UI/Button";
 import IconButton from "../UI/IconButton";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
+import { ProductsContext } from "../../context/ProductsProvider";
 
-export const WishListItem = ({ image, title, price }) => {
+export const WishListItem = ({ image, title, price, id }) => {
+  const { dispatch } = useContext(ProductsContext);
   return (
     <StyledLi>
       <div>
@@ -14,11 +16,20 @@ export const WishListItem = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <Icons.BlackHeart />
+          <IconButton
+            icon={<Icons.BlackHeart />}
+            onClick={() => dispatch({ type: "addTofavor", id: id })}
+          ></IconButton>
         </StyledDivConPrice>
-        <StyledButton>Add to cart</StyledButton>
+        <StyledButton
+          onClick={() => dispatch({ type: "addCardFromFavor", id: id })}
+        >
+          Add to cart
+        </StyledButton>
         <DivDelete>
-          <StyledIconBtn>
+          <StyledIconBtn
+            onClick={() => dispatch({ type: "deleteFromFavor", id: id })}
+          >
             <Icons.DeleteBasket />
             Delete
           </StyledIconBtn>
