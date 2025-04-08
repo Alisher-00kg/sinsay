@@ -1,17 +1,15 @@
 import React, { useContext } from "react";
-import { Icons } from "../assets/icons/icons";
+import { Icons } from "../../assets/icons/icons";
+import IconButton from "./IconButton";
 import styled from "styled-components";
-import IconButton from "./UI/IconButton";
-import { ProductsContext } from "../context/ProductsProvider";
+import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
   const { setBool } = useContext(ProductsContext);
   return (
     <StyledHeader>
       <ContainerHeader>
-        <IconButton>
-          <Icons.Logo />
-        </IconButton>
+        <IconButton>{<Icons.Logo />}</IconButton>
         <StyledH4>Sinsay</StyledH4>
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
