@@ -60,7 +60,7 @@ const reducer = (state, action) => {
     case "decrement":
       return {
         ...state,
-        basketMassive: state.basketMassive.filter((i) => i.amount > 0),
+
         basketMassive: state.basketMassive
           .map((item) =>
             item.id === action.id
@@ -183,7 +183,7 @@ const reducer = (state, action) => {
 
 export const ProductsProvaider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [bool, setBool] = useState("MainPage");
+  const [bool, setBool] = useState("sign-in");
 
   const addTofavor = (id) => {
     dispatch({ type: "addTofavor", id: id });

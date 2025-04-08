@@ -9,13 +9,13 @@ export const Header = () => {
   return (
     <StyledHeader>
       <ContainerHeader>
-        <IconButton>{<Icons.Logo />}</IconButton>
+        <IconButton onClick={() => setBool("/")}>{<Icons.Logo />}</IconButton>
         <StyledH4>Sinsay</StyledH4>
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
-          <Icons.HeaderProfile onClick={() => setBool("MainPage")} />
-          <Icons.HeaderHeart onClick={() => setBool("WishList")} />
-          <Icons.HeaderBag onClick={() => setBool("CartList")} />
+          <Icons.HeaderProfile onClick={() => setBool("/")} />
+          <Icons.HeaderHeart onClick={() => setBool("/favorite")} />
+          <Icons.HeaderBag onClick={() => setBool("/cart")} />
           <IconBurgerMenu />
         </ContainerIconsBtn>
       </ContainerHeader>

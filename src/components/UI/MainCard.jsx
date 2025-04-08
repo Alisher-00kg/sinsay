@@ -19,7 +19,6 @@ export const MainCard = ({ image, title, price, id, isFavorite }) => {
           <IconButton onClick={() => dispatch({ type: "addTofavor", id: id })}>
             {isFavorite ? <Icons.BlackHeart /> : <Icons.BuyHeart />}
           </IconButton>
-          <Icons.BuyHeart />
         </StyledDivConPrice>
         <StyledButton
           onClick={() => dispatch({ type: "addToBasketFromMain", id: id })}
