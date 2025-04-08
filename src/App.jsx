@@ -1,6 +1,11 @@
 import React from "react";
+import { WishListPage } from "./pages/WishListPage";
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <WishListPage />
+    </div>
+  );
 };
 
 export default App;
