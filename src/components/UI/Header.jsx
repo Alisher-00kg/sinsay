@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
-  const { setBool } = useContext(ProductsContext);
+  const { setBool, valueInput, setInputValue, inputVisible, setInputvisible } =
+    useContext(ProductsContext);
+
   return (
     <StyledHeader>
       <ContainerHeader>
         <IconButton onClick={() => setBool("/")}>{<Icons.Logo />}</IconButton>
         <StyledH4>Sinsay</StyledH4>
+
         <ContainerIconsBtn>
-          <Icons.HeaderLoupe />
+          <Icons.HeaderLoupe onClick={() => setInputvisible(true)} />
+
           <Icons.HeaderProfile onClick={() => setBool("/")} />
           <Icons.HeaderHeart onClick={() => setBool("/favorite")} />
           <Icons.HeaderBag onClick={() => setBool("/cart")} />
@@ -52,4 +56,29 @@ const StyledH4 = styled.h4`
 const ContainerIconsBtn = styled(IconButton)`
   display: flex;
   gap: 50px;
+`;
+
+const animatedInvisible = keyframes`
+from {
+    opacity: 1;
+    width: 200px;
+  }
+  to {
+    opacity: 0;
+    width: 0;
+  }
+
+`;
+const animatedvisible = keyframes`
+  from{
+    opacity: 0;
+    width: 0;
+
+
+  }
+  to{
+    opacity: 1;
+    width: 200px;
+
+  }
 `;

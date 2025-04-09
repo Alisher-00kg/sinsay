@@ -206,7 +206,8 @@ export const ProductsProvaider = ({ children }) => {
   const addToBasketFromMain = (id) => {
     dispatch({ type: "addToBasketFromMain", id: id });
   };
-
+  const [valueInput, setInputValue] = useState("");
+  const [inputVisible, setInputvisible] = useState(false);
   return (
     <ProductsContext.Provider
       value={{
@@ -221,6 +222,10 @@ export const ProductsProvaider = ({ children }) => {
         decrement,
         deleteFromBasket,
         addToBasketFromMain,
+        valueInput,
+        setInputValue,
+        inputVisible,
+        setInputvisible,
       }}
     >
       {children}
