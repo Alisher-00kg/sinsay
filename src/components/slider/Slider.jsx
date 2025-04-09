@@ -47,7 +47,7 @@ export const Slider = () => {
 const SliderWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 370px;
+  height: 340px;
   margin: 0 auto;
   padding-bottom: 30px;
 `;

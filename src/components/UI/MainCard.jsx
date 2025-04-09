@@ -3,10 +3,15 @@ import { Button } from "../UI/Button";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
-import { ProductsContext } from "../../context/ProductsProvider";
-
-export const MainCard = ({ image, title, price, id, isFavorite }) => {
-  const { dispatch } = useContext(ProductsContext);
+export const MainCard = ({
+  image,
+  title,
+  price,
+  id,
+  isFavorite,
+  onAddToBasket,
+  onToggleFavorite,
+}) => {
   return (
     <StyledLi>
       <div>
@@ -16,13 +21,15 @@ export const MainCard = ({ image, title, price, id, isFavorite }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <IconButton onClick={() => dispatch({ type: "addTofavor", id: id })}>
-            {isFavorite ? <Icons.BlackHeart /> : <Icons.BuyHeart />}
+          <IconButton onClick={() => onToggleFavorite(id)}>
+            {isFavorite ? (
+              <Icons.BlackHeart style={{ width: "27px", height: "27px" }} />
+            ) : (
+              <Icons.BuyHeart />
+            )}
           </IconButton>
         </StyledDivConPrice>
-        <StyledButton
-          onClick={() => dispatch({ type: "addToBasketFromMain", id: id })}
-        >
+        <StyledButton onClick={() => onAddToBasket(id)}>
           Add to cart
         </StyledButton>
       </div>
@@ -40,6 +47,12 @@ const DivImg = styled.div`
   width: 100%;
   height: 100%;
   border: 2px solid #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 const StyledImg = styled.img`
   width: 100%;

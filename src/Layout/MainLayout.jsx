@@ -7,11 +7,12 @@ import { ProductsContext } from "../context/ProductsProvider";
 import { Login } from "../auth/Login";
 import CartList from "../pages/cartList/CartList";
 import { WishListPage } from "../pages/WishListPage";
+import styled from "styled-components";
 
 const MainLayout = () => {
-  const { bool } = useContext(ProductsContext);
+  const { path } = useContext(ProductsContext);
   const showPath = () => {
-    switch (bool) {
+    switch (path) {
       case "/":
         return <MainPage />;
       case "/cart":
@@ -23,12 +24,21 @@ const MainLayout = () => {
     }
   };
   return (
-    <div>
+    <>
       <Header />
-      {showPath()}
-      <Footer />
-    </div>
+      <ContainerOfAllContent>
+        {showPath()}
+        <Footer />
+      </ContainerOfAllContent>
+    </>
   );
 };
 
 export default MainLayout;
+const ContainerOfAllContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 54px;
+`;

@@ -11,7 +11,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { setBool } = useContext(ProductsContext);
+  const { setPath } = useContext(ProductsContext);
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -41,7 +41,7 @@ export const Login = () => {
     console.log({ email, password });
     setEmail("");
     setPassword("");
-    setBool("/");
+    setPath("/");
   };
 
   return (

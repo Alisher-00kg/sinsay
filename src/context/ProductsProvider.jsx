@@ -1,83 +1,64 @@
 import { createContext, useReducer, useState } from "react";
 import { data } from "../utils/constants/CardItem";
+import { findProductById } from "../utils/helpers/helpers";
 
 export const ProductsContext = createContext();
-
 const initialState = {
-  mainMassive: data,
-  basketMassive: [],
-  favorArray: [],
+  productsCatalog: data,
+  basket: [],
+  favorites: [],
 };
-
 const reducer = (state, action) => {
   switch (action.type) {
-    case "addToBasketFromMain":
-      const findedObj = state.basketMassive.find(
-        (item) => item.id === action.id
-      );
-
-      if (!findedObj) {
-        const findedObjOfMain = state.mainMassive
-          .find((item) => item.products.find((item) => item.id === action.id))
-          .products.find((item) => item.id === action.id);
+    case "addToBasketFromMain": {
+      const existing = state.basket.find((item) => item.id === action.id);
+      const product = findProductById(state.productsCatalog, action.id);
+      if (!product) return state;
+      if (!existing) {
         return {
           ...state,
-          basketMassive: [
-            ...state.basketMassive,
-            {
-              ...findedObjOfMain,
-              totalPrice: findedObjOfMain.price,
-              amount: 1,
-            },
+          basket: [
+            ...state.basket,
+            { ...product, totalPrice: product.price, amount: 1 },
           ],
         };
-      } else {
-        const findedObjOfMain = state.mainMassive
-          .find((item) => item.products.find((item) => item.id === action.id))
-          .products.find((item) => item.id === action.id);
-        return {
-          ...state,
-          basketMassive: state.basketMassive.map((item) =>
-            item.id === action.id
-              ? {
-                  ...item,
-                  amount: item.amount + 1,
-                  totalPrice: item.totalPrice + findedObjOfMain.price,
-                }
-              : item
-          ),
-        };
       }
-
+      return {
+        ...state,
+        basket: state.basket.map((item) =>
+          item.id === action.id
+            ? {
+                ...item,
+                amount: item.amount + 1,
+                totalPrice: item.totalPrice + product.price,
+              }
+            : item
+        ),
+      };
+    }
     case "deleteFromBasket":
       return {
         ...state,
-        basketMassive: state.basketMassive.filter(
-          (item) => item.id !== action.id
-        ),
+        basket: state.basket.filter((item) => item.id !== action.id),
       };
-
     case "decrement":
       return {
         ...state,
-
-        basketMassive: state.basketMassive
-          .map((item) =>
-            item.id === action.id
-              ? {
-                  ...item,
-                  totalPrice: item.totalPrice - item.price,
-                  amount: item.amount - 1,
-                }
-              : item
-          )
-          .filter((item) => item.amount > 0),
+        basket: state.basket.map((item) => {
+          if (item.id === action.id && item.amount > 1) {
+            return {
+              ...item,
+              amount: item.amount - 1,
+              totalPrice: item.totalPrice - item.price,
+            };
+          }
+          return item;
+        }),
       };
-
     case "increament":
       return {
         ...state,
-        basketMassive: state.basketMassive.map((item) =>
+        basket: state.basket.map((item) =>
           item.id === action.id
             ? {
                 ...item,
@@ -87,95 +68,62 @@ const reducer = (state, action) => {
             : item
         ),
       };
-
-    case "addTofavor":
-      const findedFavor = state.favorArray.find(
-        (item) => item.id === action.id
-      );
-
-      if (!findedFavor) {
-        const findedObjOfMain = state.mainMassive
-          .find((item) => item.products.find((item) => item.id === action.id))
-          .products.find((item) => item.id === action.id);
-
-        return {
-          ...state,
-          favorArray: [...state.favorArray, findedObjOfMain],
-          mainMassive: state.mainMassive.map((item) => ({
-            ...item,
-            products: item.products.map((product) =>
-              product.id === action.id
-                ? { ...product, isFavorite: true }
-                : product
-            ),
-          })),
-        };
-      } else {
-        return {
-          ...state,
-          mainMassive: state.mainMassive.map((item) => ({
-            ...item,
-            products: item.products.map((product) =>
-              product.id === action.id
-                ? { ...product, isFavorite: false }
-                : product
-            ),
-          })),
-          favorArray: state.favorArray.filter((item) => item.id !== action.id),
-        };
-      }
-
-    case "addCardFromFavor":
-      const findedobj = state.basketMassive.find(
-        (item) => item.id === action.id
-      );
-
-      if (!findedobj) {
-        const findOfFavorCard = state.favorArray.find(
-          (item) => item.id === action.id
-        );
-
-        return {
-          ...state,
-          basketMassive: [
-            ...state.basketMassive,
-            {
-              ...findOfFavorCard,
-              totalPrice: findOfFavorCard.price,
-              amount: 1,
-            },
-          ],
-        };
-      } else {
-        const findOfFavorCard = state.favorArray.find(
-          (item) => item.id === action.id
-        );
-        return {
-          ...state,
-          basketMassive: state.basketMassive.map((item) =>
-            item.id === action.id
-              ? {
-                  ...item,
-                  totalPrice: item.totalPrice + findOfFavorCard.price,
-                  amount: item.amount + 1,
-                }
-              : item
-          ),
-        };
-      }
-
-    case "deleteFromFavor":
+    case "addTofavor": {
+      const isFavorite = state.favorites.find((item) => item.id === action.id);
+      const product = findProductById(state.productsCatalog, action.id);
+      if (!product) return state;
       return {
         ...state,
-        favorArray: state.favorArray.filter((item) => item.id !== action.id),
-        mainMassive: state.mainMassive.map((item) => ({
-          ...item,
-          products: item.products.map((item) =>
-            item.id === action.id ? { ...item, isFavorite: false } : item
+        favorites: isFavorite
+          ? state.favorites.filter((item) => item.id !== action.id)
+          : [...state.favorites, product],
+        productsCatalog: state.productsCatalog.map((section) => ({
+          ...section,
+          products: section.products.map((item) =>
+            item.id === action.id ? { ...item, isFavorite: !isFavorite } : item
           ),
         })),
       };
-
+    }
+    case "addCardFromFavor": {
+      const existing = state.basket.find((item) => item.id === action.id);
+      const product = state.favorites.find((item) => item.id === action.id);
+      if (!product) return state;
+      if (!existing) {
+        return {
+          ...state,
+          basket: [
+            ...state.basket,
+            { ...product, totalPrice: product.price, amount: 1 },
+          ],
+        };
+      }
+      return {
+        ...state,
+        basket: state.basket.map((item) =>
+          item.id === action.id
+            ? {
+                ...item,
+                totalPrice: item.totalPrice + product.price,
+                amount: item.amount + 1,
+              }
+            : item
+        ),
+      };
+    }
+    case "deleteFromFavor":
+      return {
+        ...state,
+        favorites: state.favorites.filter((item) => item.id !== action.id),
+        productsCatalog: state.productsCatalog.map((section) => ({
+          ...section,
+          products: section.products.map((product) =>
+            product.id === action.id
+              ? { ...product, isFavorite: false }
+              : product
+          ),
+        })),
+      };
     default:
       return state;
   }
@@ -183,41 +131,27 @@ const reducer = (state, action) => {
 
 export const ProductsProvaider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [bool, setBool] = useState("sign-in");
+  const [path, setPath] = useState("sign-in");
 
-  const addTofavor = (id) => {
-    dispatch({ type: "addTofavor", id: id });
-  };
-  const deleteFromFavor = (id) => {
-    dispatch({ type: "deleteFromFavor", id: id });
-  };
-  const addCardFromFavor = (id) => {
-    dispatch({ type: "addCardFromFavor", id: id });
-  };
-  const increament = (id) => {
-    dispatch({ type: "increament", id: id });
-  };
-  const decrement = (id) => {
-    dispatch({ type: "decrement", id: id });
-  };
-  const deleteFromBasket = (id) => {
-    dispatch({ type: "deleteFromBasket", id: id });
-  };
-  const addToBasketFromMain = (id) => {
-    dispatch({ type: "addToBasketFromMain", id: id });
-  };
-
+  const addToFavor = (id) => dispatch({ type: "addTofavor", id });
+  const deleteFromFavor = (id) => dispatch({ type: "deleteFromFavor", id });
+  const addCardFromFavor = (id) => dispatch({ type: "addCardFromFavor", id });
+  const increment = (id) => dispatch({ type: "increament", id });
+  const decrement = (id) => dispatch({ type: "decrement", id });
+  const deleteFromBasket = (id) => dispatch({ type: "deleteFromBasket", id });
+  const addToBasketFromMain = (id) =>
+    dispatch({ type: "addToBasketFromMain", id });
   return (
     <ProductsContext.Provider
       value={{
         dispatch,
         state,
-        bool,
-        setBool,
-        addTofavor,
+        path,
+        setPath,
+        addToFavor,
         deleteFromFavor,
         addCardFromFavor,
-        increament,
+        increment,
         decrement,
         deleteFromBasket,
         addToBasketFromMain,

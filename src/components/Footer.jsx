@@ -59,7 +59,7 @@ const Footer = () => {
 export default Footer;
 
 const FooterStyled = styled.footer`
-  width: 100%;
+  width: 86%;
   height: 360px;
   background-color: #cfc9cb;
   font-weight: 400;

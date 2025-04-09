@@ -1,19 +1,27 @@
 import styled from "styled-components";
-import { data } from "../utils/constants/CardItem";
 import { MainCard } from "./UI/MainCard";
 import { useContext } from "react";
 import { ProductsContext } from "../context/ProductsProvider";
 
 export const MainContent = () => {
-  const { state } = useContext(ProductsContext);
+  const {
+    state: { productsCatalog },
+    addToBasketFromMain,
+    addToFavor,
+  } = useContext(ProductsContext);
   return (
     <DataCardContainer>
-      {state.mainMassive.map((category) => (
+      {productsCatalog.map((category) => (
         <CategoryCardContainer key={category.id}>
           <StyledH1>{category.subTitle}</StyledH1>
           <ProductCardContainer>
             {category.products.map((product) => (
-              <MainCard key={product.id} {...product} />
+              <MainCard
+                key={product.id}
+                {...product}
+                onAddToBasket={addToBasketFromMain}
+                onToggleFavorite={addToFavor}
+              />
             ))}
           </ProductCardContainer>
         </CategoryCardContainer>
