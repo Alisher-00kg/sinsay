@@ -10,10 +10,12 @@ export const MainContent = () => {
     state: { productsCatalog },
     addToBasketFromMain,
     addToFavor,
+    searchMassive,
   } = useContext(ProductsContext);
+
   return (
     <DataCardContainer>
-      {productsCatalog.map((category) => (
+      {searchMassive.map((category) => (
         <CategoryCardContainer key={category.id}>
           <StyledH1>{category.subTitle}</StyledH1>
           <ProductCardContainer>

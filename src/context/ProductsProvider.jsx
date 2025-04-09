@@ -144,6 +144,13 @@ export const ProductsProvaider = ({ children }) => {
 
   const [valueInput, setInputValue] = useState(false);
   const [inputVisible, setInputvisible] = useState(false);
+  const findedMassiveItem = state.productsCatalog.map((item) => ({
+    id: item.id,
+    products: item.products.filter((item) =>
+      item.title.toLowerCase().includes(valueInput)
+    ),
+  }));
+  const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
   return (
     <ProductsContext.Provider
       value={{
@@ -158,6 +165,7 @@ export const ProductsProvaider = ({ children }) => {
         decrement,
         deleteFromBasket,
         addToBasketFromMain,
+        searchMassive,
       }}
     >
       {children}
