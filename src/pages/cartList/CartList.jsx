@@ -61,12 +61,12 @@ const CartList = () => {
 export default CartList;
 
 const StyledContainer = styled.div`
+  width: 85%;
   display: flex;
   flex-direction: column;
   gap: 110px;
   align-items: center;
-  margin-top: 80px;
-  width: 85%;
+  margin-top: 10%;
   padding-left: 1%;
 `;
 const CartlistStyled = styled.ul`

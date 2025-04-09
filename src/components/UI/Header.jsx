@@ -3,6 +3,8 @@ import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
 import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
+import { ModalContext } from "../../context/ModalContext";
+import { Modal } from "./Modal";
 
 export const Header = () => {
   const { setPath, state } = useContext(ProductsContext);
@@ -14,6 +16,7 @@ export const Header = () => {
     (acc, item) => acc + (item.amount || 1),
     0
   );
+  const { toggleModal, showModal } = useContext(ModalContext);
   return (
     <StyledHeader>
       <ContainerHeader>
@@ -22,7 +25,7 @@ export const Header = () => {
 
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
-          <Icons.HeaderProfile onClick={() => setPath("/")} />
+          <Icons.HeaderProfile onClick={toggleModal} />
           <IconWithBadge>
             <Icons.HeaderHeart onClick={() => setPath("/favorite")} />
             {totalFavoritesAmount > 0 && (
@@ -38,6 +41,22 @@ export const Header = () => {
           <IconBurgerMenu />
         </ContainerIconsBtn>
       </ContainerHeader>
+      {showModal && (
+        <Modal>
+          <ModalContent>
+            <StyledP>Profile</StyledP>
+            <StyledP>My account</StyledP>
+            <StyledP
+              onClick={() => {
+                setPath("/login");
+                toggleModal();
+              }}
+            >
+              Logout
+            </StyledP>
+          </ModalContent>
+        </Modal>
+      )}
     </StyledHeader>
   );
 };
@@ -51,6 +70,18 @@ const StyledHeader = styled.header`
   z-index: 5;
   background-color: #ffffff;
   padding-left: 3.75%;
+`;
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+  text-align: center;
+`;
+const StyledP = styled.p`
+  font-size: 10px;
+  text-align: left;
+  cursor: pointer;
 `;
 const ContainerHeader = styled.div`
   width: 90%;
