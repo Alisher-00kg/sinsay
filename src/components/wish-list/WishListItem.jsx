@@ -39,11 +39,12 @@ export const WishListItem = ({ image, title, price, id }) => {
   );
 };
 const StyledLi = styled.li`
-  width: 413px;
+  width: 407px;
   list-style: none;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  padding-left: 1.15%;
 `;
 const DivImg = styled.div`
   width: 100%;

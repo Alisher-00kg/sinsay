@@ -41,16 +41,19 @@ export const Header = () => {
   );
 };
 const StyledHeader = styled.header`
-  width: 97.5%;
+  width: 97.25%;
   height: 89px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 3.3%;
+  position: fixed;
+  z-index: 5;
+  background-color: #ffffff;
+  padding-left: 3.75%;
 `;
 const ContainerHeader = styled.div`
   width: 90%;
-  height: 82px;
+  height: 88px;
   display: flex;
   justify-content: space-between;
   align-items: center;

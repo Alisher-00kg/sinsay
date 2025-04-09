@@ -38,7 +38,7 @@ const CartList = () => {
             ))}
           </>
         ) : (
-          <StyledMessage>В корзине пока нет товаров</StyledMessage>
+          <StyledMessage>There are no items in the cart</StyledMessage>
         )}
       </CartlistStyled>
       <StyledShopping>
@@ -66,7 +66,8 @@ const StyledContainer = styled.div`
   gap: 110px;
   align-items: center;
   margin-top: 80px;
-  width: 84%;
+  width: 85%;
+  padding-left: 1%;
 `;
 const CartlistStyled = styled.ul`
   display: flex;

@@ -14,7 +14,7 @@ export const WishListPage = () => {
               <WishListItem key={product.id} {...product} />
             ))
           ) : (
-            <StyledMessage>В избранном пока нет товаров</StyledMessage>
+            <StyledMessage>There are no products in favorites</StyledMessage>
           )}
         </DataCardContainer>
       </StyledContainerWishList>
