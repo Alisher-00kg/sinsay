@@ -154,8 +154,9 @@ export const ProductsProvaider = ({ children }) => {
   const blurs = (visible) => {
     setInputvisible(visible), setInputValue("");
   };
-
   const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
+  const legthMassive = searchMassive.find((i) => i.products.length > 0);
+
   return (
     <ProductsContext.Provider
       value={{
@@ -176,6 +177,7 @@ export const ProductsProvaider = ({ children }) => {
         setInputValue,
         valueInput,
         blurs,
+        legthMassive,
       }}
     >
       {children}

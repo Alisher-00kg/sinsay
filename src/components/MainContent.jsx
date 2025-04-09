@@ -15,25 +15,24 @@ export const MainContent = () => {
     setInputValue,
     blurs,
     valueInput,
+    legthMassive,
   } = useContext(ProductsContext);
-
-  const founded = searchMassive.find((i) => i.products.length > 0);
 
   return (
     <DataCardContainer>
       {inputVisible && (
         <StyledLoupeAndInput>
-          <Icons.HeaderLoupe></Icons.HeaderLoupe>
           <StyledInput
             autoFocus
             onBlur={() => blurs(!inputVisible)}
             type="text"
+            placeholder="search..."
             value={valueInput}
             onChange={(e) => setInputValue(e.target.value)}
           />
         </StyledLoupeAndInput>
       )}
-      {founded ? (
+      {legthMassive ? (
         searchMassive.map((category) => (
           <CategoryCardContainer key={category.id}>
             <StyledH1>{category.subTitle}</StyledH1>
@@ -89,7 +88,10 @@ const StyledLoupeAndInput = styled.div`
   justify-content: center;
 `;
 const StyledInput = styled.input`
-  width: 600px;
+  width: 550px;
   height: 30px;
-  border-radius: 20px;
+  font-weight: 600px;
+  font-size: 20px;
+  padding: 15px;
+  margin-top: 200px;
 `;
