@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { MainCard } from "./UI/MainCard";
 import { useContext } from "react";
 import { ProductsContext } from "../context/ProductsProvider";
+import { Icons } from "react-toastify";
+import IconButton from "./UI/IconButton";
 
 export const MainContent = () => {
   const {

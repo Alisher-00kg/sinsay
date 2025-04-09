@@ -141,6 +141,9 @@ export const ProductsProvaider = ({ children }) => {
   const deleteFromBasket = (id) => dispatch({ type: "deleteFromBasket", id });
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
+
+  const [valueInput, setInputValue] = useState(false);
+  const [inputVisible, setInputvisible] = useState(false);
   return (
     <ProductsContext.Provider
       value={{

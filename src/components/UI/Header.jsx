@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
@@ -19,6 +19,7 @@ export const Header = () => {
       <ContainerHeader>
         <IconButton onClick={() => setPath("/")}>{<Icons.Logo />}</IconButton>
         <StyledH4>Sinsay</StyledH4>
+
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
           <Icons.HeaderProfile onClick={() => setPath("/")} />
