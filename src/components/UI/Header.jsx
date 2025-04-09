@@ -5,7 +5,8 @@ import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
-  const { setPath, state } = useContext(ProductsContext);
+  const { setPath, state, inputVisible, setInputvisible } =
+    useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
     0
@@ -21,7 +22,7 @@ export const Header = () => {
         <StyledH4>Sinsay</StyledH4>
 
         <ContainerIconsBtn>
-          <Icons.HeaderLoupe />
+          <Icons.HeaderLoupe onClick={() => setInputvisible(!inputVisible)} />
           <Icons.HeaderProfile onClick={() => setPath("/")} />
           <IconWithBadge>
             <Icons.HeaderHeart onClick={() => setPath("/favorite")} />

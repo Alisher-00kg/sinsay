@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { MainCard } from "./UI/MainCard";
 import { useContext } from "react";
 import { ProductsContext } from "../context/ProductsProvider";
-import { Icons } from "react-toastify";
+import { Icons } from "./../assets/icons/icons";
 import IconButton from "./UI/IconButton";
 
 export const MainContent = () => {
@@ -13,6 +13,8 @@ export const MainContent = () => {
     searchMassive,
     inputVisible,
     setInputValue,
+    blurs,
+    valueInput,
   } = useContext(ProductsContext);
 
   return (
@@ -79,4 +81,9 @@ const StyledLoupeAndInput = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+const StyledInput = styled.input`
+  width: 600px;
+  height: 30px;
+  border-radius: 20px;
 `;

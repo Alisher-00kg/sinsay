@@ -150,6 +150,10 @@ export const ProductsProvaider = ({ children }) => {
       item.title.toLowerCase().includes(valueInput)
     ),
   }));
+  const blurs = (visible) => {
+    setInputvisible(visible), setInputValue("");
+  };
+
   const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
   return (
     <ProductsContext.Provider
@@ -170,6 +174,7 @@ export const ProductsProvaider = ({ children }) => {
         setInputvisible,
         setInputValue,
         valueInput,
+        blurs,
       }}
     >
       {children}
