@@ -142,7 +142,7 @@ export const ProductsProvaider = ({ children }) => {
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
 
-  const [valueInput, setInputValue] = useState(false);
+  const [valueInput, setInputValue] = useState("");
   const [inputVisible, setInputvisible] = useState(false);
   const findedMassiveItem = state.productsCatalog.map((item) => ({
     id: item.id,
@@ -150,6 +150,7 @@ export const ProductsProvaider = ({ children }) => {
       item.title.toLowerCase().includes(valueInput)
     ),
   }));
+
   const blurs = (visible) => {
     setInputvisible(visible), setInputValue("");
   };

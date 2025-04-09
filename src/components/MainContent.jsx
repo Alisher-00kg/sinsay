@@ -17,6 +17,8 @@ export const MainContent = () => {
     valueInput,
   } = useContext(ProductsContext);
 
+  const founded = searchMassive.find((i) => i.products.length > 0);
+
   return (
     <DataCardContainer>
       {inputVisible && (
@@ -31,21 +33,25 @@ export const MainContent = () => {
           />
         </StyledLoupeAndInput>
       )}
-      {searchMassive.map((category) => (
-        <CategoryCardContainer key={category.id}>
-          <StyledH1>{category.subTitle}</StyledH1>
-          <ProductCardContainer>
-            {category.products.map((product) => (
-              <MainCard
-                key={product.id}
-                {...product}
-                onAddToBasket={addToBasketFromMain}
-                onToggleFavorite={addToFavor}
-              />
-            ))}
-          </ProductCardContainer>
-        </CategoryCardContainer>
-      ))}
+      {founded ? (
+        searchMassive.map((category) => (
+          <CategoryCardContainer key={category.id}>
+            <StyledH1>{category.subTitle}</StyledH1>
+            <ProductCardContainer>
+              {category.products.map((product) => (
+                <MainCard
+                  key={product.id}
+                  {...product}
+                  onAddToBasket={addToBasketFromMain}
+                  onToggleFavorite={addToFavor}
+                />
+              ))}
+            </ProductCardContainer>
+          </CategoryCardContainer>
+        ))
+      ) : (
+        <h1>There are no such items</h1>
+      )}
     </DataCardContainer>
   );
 };
