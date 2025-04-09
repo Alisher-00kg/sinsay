@@ -1,21 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
-  const { setBool } = useContext(ProductsContext);
+  const { setPath, state } = useContext(ProductsContext);
+  const totalBasketAmount = state.basket.reduce(
+    (acc, item) => acc + item.amount,
+    0
+  );
+  const totalFavoritesAmount = state.favorites.reduce(
+    (acc, item) => acc + (item.amount || 1),
+    0
+  );
   return (
     <StyledHeader>
       <ContainerHeader>
-        <IconButton>{<Icons.Logo />}</IconButton>
+        <IconButton onClick={() => setPath("/")}>{<Icons.Logo />}</IconButton>
         <StyledH4>Sinsay</StyledH4>
+
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
-          <Icons.HeaderProfile onClick={() => setBool("MainPage")} />
-          <Icons.HeaderHeart onClick={() => setBool("WishList")} />
-          <Icons.HeaderBag onClick={() => setBool("CartList")} />
+          <Icons.HeaderProfile onClick={() => setPath("/")} />
+          <IconWithBadge>
+            <Icons.HeaderHeart onClick={() => setPath("/favorite")} />
+            {totalFavoritesAmount > 0 && (
+              <StyledBadge>{totalFavoritesAmount}</StyledBadge>
+            )}
+          </IconWithBadge>
+          <IconWithBadge>
+            <Icons.HeaderBag onClick={() => setPath("/cart")} />
+            {totalBasketAmount > 0 && (
+              <StyledBadge>{totalBasketAmount}</StyledBadge>
+            )}
+          </IconWithBadge>
           <IconBurgerMenu />
         </ContainerIconsBtn>
       </ContainerHeader>
@@ -23,15 +42,19 @@ export const Header = () => {
   );
 };
 const StyledHeader = styled.header`
-  width: 100%;
+  width: 97.25%;
   height: 89px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 5;
+  background-color: #ffffff;
+  padding-left: 3.75%;
 `;
 const ContainerHeader = styled.div`
-  width: 96%;
-  height: 82px;
+  width: 90%;
+  height: 88px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,4 +75,25 @@ const StyledH4 = styled.h4`
 const ContainerIconsBtn = styled(IconButton)`
   display: flex;
   gap: 50px;
+`;
+const IconWithBadge = styled.div`
+  position: relative;
+  width: 24px;
+  height: 24px;
+  position: relative;
+`;
+
+const StyledBadge = styled.span`
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -5,33 +5,41 @@ import { Button } from "../../components/UI/Button";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 const CartList = () => {
-  const { state } = useContext(ProductsContext);
+  const { state, increment, decrement, deleteFromBasket } =
+    useContext(ProductsContext);
   return (
     <StyledContainer>
       <CartlistStyled>
         <StyledH1>Cart</StyledH1>
-        <StyledDIv>
-          <p>Product</p>
-          <StyledPrices>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Total</p>
-          </StyledPrices>
-        </StyledDIv>
+        {state.basket.length > 0 ? (
+          <>
+            <StyledDIv>
+              <p>Product</p>
+              <StyledPrices>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Total</p>
+              </StyledPrices>
+            </StyledDIv>
 
-        {state?.basketMassive?.map((item) => {
-          return (
-            <CartItem
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              title={item.title}
-              price={item.price}
-              amount={item.amount}
-              totalPrices={item.totalPrice}
-            ></CartItem>
-          );
-        })}
+            {state.basket.map((item) => (
+              <CartItem
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+                amount={item.amount}
+                totalPrices={item.totalPrice}
+                increment={increment}
+                decrement={decrement}
+                onDelete={deleteFromBasket}
+              />
+            ))}
+          </>
+        ) : (
+          <StyledMessage>There are no items in the cart</StyledMessage>
+        )}
       </CartlistStyled>
       <StyledShopping>
         <StyledContiniueButton>Continue shopping</StyledContiniueButton>
@@ -39,10 +47,7 @@ const CartList = () => {
           <StyledTaxContainer>
             <StyledP>
               Subtotal: $
-              {state.basketMassive.reduce(
-                (acc, item) => acc + item.totalPrice,
-                0
-              )}
+              {state.basket.reduce((acc, item) => acc + item.totalPrice, 0)}
             </StyledP>
             <p>Tax included. Shipping calculated at checkout.</p>
           </StyledTaxContainer>
@@ -55,32 +60,34 @@ const CartList = () => {
 
 export default CartList;
 
-const CartlistStyled = styled.ul`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 1280px;
-  height: auto;
-`;
-const StyledH1 = styled.div`
-  font-size: 61px;
-  font-weight: 500;
-  line-height: 120%;
-`;
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 110px;
   align-items: center;
   margin-top: 80px;
+  width: 85%;
+  padding-left: 1%;
 `;
-
+const CartlistStyled = styled.ul`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+`;
+const StyledH1 = styled.div`
+  font-size: 61px;
+  font-weight: 500;
+  line-height: 120%;
+`;
 const StyledDIv = styled.div`
-  width: 1220px;
+  width: 100%;
   height: 36px;
   padding: 50px 135px 25px 59px;
   display: flex;
-  gap: 590px;
+  gap: 60%;
   border-bottom: 2px solid rgb(0, 0, 0);
   font-size: 21px;
   font-weight: 400;
@@ -130,4 +137,9 @@ const StyledP = styled.p`
   margin-bottom: 10px;
   font-weight: 500;
   line-height: 120%;
+`;
+const StyledMessage = styled.p`
+  font-size: 24px;
+  color: #999;
+  margin-top: 40px;
 `;

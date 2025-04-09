@@ -20,9 +20,6 @@ export const WishListItem = ({ image, title, price, id }) => {
             icon={<Icons.BlackHeart />}
             onClick={() => dispatch({ type: "addTofavor", id: id })}
           ></IconButton>
-          <IconButton>
-            <Icons.BlackHeart />
-          </IconButton>
         </StyledDivConPrice>
         <StyledButton
           onClick={() => dispatch({ type: "addCardFromFavor", id: id })}
@@ -42,16 +39,23 @@ export const WishListItem = ({ image, title, price, id }) => {
   );
 };
 const StyledLi = styled.li`
-  width: 413px;
+  width: 407px;
   list-style: none;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  padding-left: 1.15%;
 `;
 const DivImg = styled.div`
   width: 100%;
   height: 100%;
   border: 2px solid #000000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 const StyledImg = styled.img`
   width: 100%;
