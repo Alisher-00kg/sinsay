@@ -35,3 +35,6 @@ export { default as LipStick1 } from "../images/makeup/LipStick1.webp";
 export { default as LipStick2 } from "../images/makeup/LipStick2.webp";
 export { default as LipStick3 } from "../images/makeup/LipStick3.webp";
 export { default as LipStick4 } from "../images/makeup/LipStick4.webp";
+export { default as Unsplash1 } from "../images/unsplash/unsplash1.png";
+export { default as Unsplash2 } from "../images/unsplash/unsplash2.png";
+export { default as Unsplash3 } from "../images/unsplash/unsplash3.png";
