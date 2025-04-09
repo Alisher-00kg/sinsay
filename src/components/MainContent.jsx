@@ -11,10 +11,24 @@ export const MainContent = () => {
     addToBasketFromMain,
     addToFavor,
     searchMassive,
+    inputVisible,
+    setInputValue,
   } = useContext(ProductsContext);
 
   return (
     <DataCardContainer>
+      {inputVisible && (
+        <StyledLoupeAndInput>
+          <Icons.HeaderLoupe></Icons.HeaderLoupe>
+          <StyledInput
+            autoFocus
+            onBlur={() => blurs(!inputVisible)}
+            type="text"
+            value={valueInput}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+        </StyledLoupeAndInput>
+      )}
       {searchMassive.map((category) => (
         <CategoryCardContainer key={category.id}>
           <StyledH1>{category.subTitle}</StyledH1>
@@ -59,4 +73,10 @@ const ProductCardContainer = styled.div`
   gap: 20px;
   justify-content: center;
   align-items: center;
+`;
+
+const StyledLoupeAndInput = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

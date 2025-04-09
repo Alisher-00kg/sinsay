@@ -166,6 +166,10 @@ export const ProductsProvaider = ({ children }) => {
         deleteFromBasket,
         addToBasketFromMain,
         searchMassive,
+        inputVisible,
+        setInputvisible,
+        setInputValue,
+        valueInput,
       }}
     >
       {children}
