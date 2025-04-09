@@ -17,7 +17,6 @@ const StyledContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 57px;
   margin: 0 auto;
   padding-left: 1%;
 `;
