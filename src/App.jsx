@@ -1,13 +1,7 @@
 import React from "react";
-import MainLayout from "./Layout/MainLayout";
 
 const App = () => {
-  return (
-    <div>
-      App
-      <MainLayout></MainLayout>
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
