@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../UI/Button";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
+import IconButton from "./IconButton";
+import { ProductsContext } from "../../context/ProductsProvider";
 
-export const MainCard = ({ image, title, price }) => {
+export const MainCard = ({ image, title, price, id, isFavorite }) => {
+  const { dispatch } = useContext(ProductsContext);
   return (
     <StyledLi>
       <div>
@@ -13,9 +16,16 @@ export const MainCard = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
+          <IconButton onClick={() => dispatch({ type: "addTofavor", id: id })}>
+            {isFavorite ? <Icons.BlackHeart /> : <Icons.BuyHeart />}
+          </IconButton>
           <Icons.BuyHeart />
         </StyledDivConPrice>
-        <StyledButton>Add to cart</StyledButton>
+        <StyledButton
+          onClick={() => dispatch({ type: "addToBasketFromMain", id: id })}
+        >
+          Add to cart
+        </StyledButton>
       </div>
     </StyledLi>
   );
