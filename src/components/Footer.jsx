@@ -10,10 +10,10 @@ const Footer = () => {
         <p className="PTag">Contact Us</p>
         <p className="PTag2">+778 456 893 0283</p>
         <p className="PTag2">Sinseybeauty@gmail.com</p>
-        <p className="PTag2">
+        <div className="PTag2">
           <div>Monday - Friday</div>
           <div>10:00 am to 17:00 pm</div>
-        </p>
+        </div>
         <SpanStyled>
           <Icons.TwitterLogo />
           <Icons.InstagramLogo />
