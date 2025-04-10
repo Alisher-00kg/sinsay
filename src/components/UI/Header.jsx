@@ -9,7 +9,8 @@ import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
   const { path, setPath } = useAuth();
-  const { state } = useContext(ProductsContext);
+  const { state, inputVisible, setInputvisible } =
+    useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
     0

@@ -2,11 +2,15 @@ import React from "react";
 import { Slider } from "../components/slider/Slider";
 import { MainContent } from "../components/MainContent";
 import styled from "styled-components";
+import { useContext } from "react";
+import { ProductsContext } from "../context/ProductsProvider";
 
 export const MainPage = () => {
+  const { inputVisible } = useContext(ProductsContext);
   return (
     <StyledContentContainer>
-      <Slider />
+      {inputVisible ? null : <Slider />}
+
       <MainContent />
     </StyledContentContainer>
   );
