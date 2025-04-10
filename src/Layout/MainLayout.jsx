@@ -2,15 +2,14 @@ import React from "react";
 import Footer from "../components/Footer";
 import { Header } from "../components/UI/Header";
 import { MainPage } from "../pages/MainPage";
-import { useContext } from "react";
-import { ProductsContext } from "../context/ProductsProvider";
 import { Login } from "../auth/Login";
 import CartList from "../pages/cartList/CartList";
 import { WishListPage } from "../pages/WishListPage";
 import styled from "styled-components";
+import { useAuth } from "../context/AuthContext";
 
 const MainLayout = () => {
-  const { path } = useContext(ProductsContext);
+  const { path } = useAuth();
   const showPath = () => {
     switch (path) {
       case "/":

@@ -131,7 +131,6 @@ const reducer = (state, action) => {
 
 export const ProductsProvaider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [path, setPath] = useState("sign-in");
 
   const addToFavor = (id) => dispatch({ type: "addTofavor", id });
   const deleteFromFavor = (id) => dispatch({ type: "deleteFromFavor", id });
@@ -142,15 +141,11 @@ export const ProductsProvaider = ({ children }) => {
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
 
-  const [valueInput, setInputValue] = useState(false);
-  const [inputVisible, setInputvisible] = useState(false);
   return (
     <ProductsContext.Provider
       value={{
         dispatch,
         state,
-        path,
-        setPath,
         addToFavor,
         deleteFromFavor,
         addCardFromFavor,

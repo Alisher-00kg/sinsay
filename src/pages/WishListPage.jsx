@@ -27,7 +27,7 @@ const StyledContainerWishList = styled.div`
   justify-content: center;
   align-items: center;
   gap: 60px;
-  margin-top: 100px;
+  margin-top: 10%;
 `;
 const StyledH2 = styled.h2`
   font-size: 61px;
