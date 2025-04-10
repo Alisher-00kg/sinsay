@@ -117,7 +117,7 @@ export const Header = () => {
           </ModalContent>
         </Modal>
       )}
-      {isOpen && <SnackBar />}
+      {path !== "/sign-in" && isOpen && <SnackBar />}
     </StyledHeader>
   );
 };

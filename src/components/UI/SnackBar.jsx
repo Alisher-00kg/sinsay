@@ -8,7 +8,7 @@ import IconButton from "./IconButton";
 import { useAuth } from "../../context/AuthContext";
 
 const SnackBar = () => {
-  const { path, setPath } = useAuth();
+  const { setPath } = useAuth();
   const { toggleMenu } = useMenu();
 
   return (
@@ -20,10 +20,7 @@ const SnackBar = () => {
       </StyledTop>
       <StyledSecondInnerBox>
         <MenuItem>
-          <MenuLink
-            href="#"
-            onClick={() => path !== "/sign-in" && setPath("/")}
-          >
+          <MenuLink href="#" onClick={() => setPath("/")}>
             <IoHomeOutline />
             Home
           </MenuLink>
@@ -32,9 +29,7 @@ const SnackBar = () => {
             Discussions
           </MenuLink>
           <MenuFast>Show More</MenuFast>
-          <MenuFast onClick={() => path !== "/sign-in" && setPath("/about")}>
-            About Sinsay
-          </MenuFast>
+          <MenuFast onClick={() => setPath("/about")}>About Sinsay</MenuFast>
         </MenuItem>
 
         <div>
