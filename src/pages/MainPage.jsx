@@ -8,7 +8,7 @@ import { ProductsContext } from "../context/ProductsProvider";
 export const MainPage = () => {
   const { inputVisible } = useContext(ProductsContext);
   return (
-    <StyledContentContainer>
+    <StyledContentContainer inputVisible={inputVisible}>
       {inputVisible ? null : <Slider />}
 
       <MainContent />
@@ -17,6 +17,7 @@ export const MainPage = () => {
 };
 const StyledContentContainer = styled.div`
   width: 86%;
+  gap: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;

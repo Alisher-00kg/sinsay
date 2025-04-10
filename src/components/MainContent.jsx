@@ -2,18 +2,14 @@ import styled from "styled-components";
 import { MainCard } from "./UI/MainCard";
 import { useContext } from "react";
 import { ProductsContext } from "../context/ProductsProvider";
-import { Icons } from "./../assets/icons/icons";
-import IconButton from "./UI/IconButton";
 
 export const MainContent = () => {
   const {
-    state: { productsCatalog },
     addToBasketFromMain,
     addToFavor,
     searchMassive,
     inputVisible,
     setInputValue,
-    blurs,
     valueInput,
     legthMassive,
   } = useContext(ProductsContext);
@@ -24,9 +20,8 @@ export const MainContent = () => {
         <StyledLoupeAndInput>
           <StyledInput
             autoFocus
-            onBlur={() => blurs(!inputVisible)}
             type="text"
-            placeholder="search..."
+            placeholder="Search..."
             value={valueInput}
             onChange={(e) => setInputValue(e.target.value)}
           />
@@ -57,7 +52,7 @@ export const MainContent = () => {
 const DataCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 37px;
 `;
@@ -83,15 +78,18 @@ const ProductCardContainer = styled.div`
 `;
 
 const StyledLoupeAndInput = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
+  margin-top: 100px;
 `;
 const StyledInput = styled.input`
   width: 550px;
-  height: 30px;
+  height: 50px;
   font-weight: 600px;
   font-size: 20px;
   padding: 15px;
-  margin-top: 200px;
+  margin-top: 60px;
+  border-radius: 12px;
 `;

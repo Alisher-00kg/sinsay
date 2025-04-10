@@ -124,11 +124,6 @@ const reducer = (state, action) => {
           ),
         })),
       };
-    case "remove":
-      return {
-        ...state,
-        basket: [],
-      };
     default:
       return state;
   }
@@ -145,20 +140,19 @@ export const ProductsProvaider = ({ children }) => {
   const deleteFromBasket = (id) => dispatch({ type: "deleteFromBasket", id });
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
-  const removeBasket = (id) => dispatch({ type: "remove", id });
 
   const [valueInput, setInputValue] = useState("");
   const [inputVisible, setInputvisible] = useState(false);
   const findedMassiveItem = state.productsCatalog.map((item) => ({
     id: item.id,
-    products: item.products.filter((item) =>
-      item.title.toLowerCase().includes(valueInput)
-    ),
+    products: item.products.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(valueInput) ||
+        item.price.toString().includes(valueInput)
+      );
+    }),
   }));
 
-  const blurs = (visible) => {
-    setInputvisible(visible), setInputValue("");
-  };
   const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
   const legthMassive = searchMassive.find((i) => i.products.length > 0);
 
@@ -179,9 +173,7 @@ export const ProductsProvaider = ({ children }) => {
         setInputvisible,
         setInputValue,
         valueInput,
-        blurs,
         legthMassive,
-        removeBasket,
       }}
     >
       {children}
