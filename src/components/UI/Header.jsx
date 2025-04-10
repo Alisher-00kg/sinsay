@@ -79,9 +79,13 @@ const ModalContent = styled.div`
   text-align: center;
 `;
 const StyledP = styled.p`
-  font-size: 10px;
+  font-size: 11px;
   text-align: left;
   cursor: pointer;
+  &:hover {
+    font-size: 12px;
+    color: gray;
+  }
 `;
 const ContainerHeader = styled.div`
   width: 90%;
