@@ -151,9 +151,6 @@ export const ProductsProvaider = ({ children }) => {
     ),
   }));
 
-  const blurs = (visible) => {
-    setInputvisible(visible), setInputValue("");
-  };
   const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
   const legthMassive = searchMassive.find((i) => i.products.length > 0);
 
@@ -176,7 +173,6 @@ export const ProductsProvaider = ({ children }) => {
         setInputvisible,
         setInputValue,
         valueInput,
-        blurs,
         legthMassive,
       }}
     >
