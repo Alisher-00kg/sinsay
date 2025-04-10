@@ -5,8 +5,15 @@ import { Button } from "../../components/UI/Button";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 const CartList = () => {
-  const { state, increment, decrement, deleteFromBasket } =
-    useContext(ProductsContext);
+  const {
+    id,
+    state,
+    increment,
+    decrement,
+    deleteFromBasket,
+    setPath,
+    removeBasket,
+  } = useContext(ProductsContext);
   return (
     <StyledContainer>
       <CartlistStyled>
@@ -42,7 +49,9 @@ const CartList = () => {
         )}
       </CartlistStyled>
       <StyledShopping>
-        <StyledContiniueButton>Continue shopping</StyledContiniueButton>
+        <StyledContiniueButton onClick={() => setPath("/")}>
+          Continue shopping
+        </StyledContiniueButton>
         <StyledCheckoutDiv>
           <StyledTaxContainer>
             <StyledP>
@@ -51,7 +60,9 @@ const CartList = () => {
             </StyledP>
             <p>Tax included. Shipping calculated at checkout.</p>
           </StyledTaxContainer>
-          <StyledButtonCheck>Checkout</StyledButtonCheck>
+          <StyledButtonCheck onClick={() => removeBasket(id)}>
+            Checkout
+          </StyledButtonCheck>
         </StyledCheckoutDiv>
       </StyledShopping>
     </StyledContainer>
