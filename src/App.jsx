@@ -1,14 +1,7 @@
-import React, { useContext } from "react";
-import MainLayout from "./Layout/MainLayout";
-import { ProductsContext } from "./context/ProductsProvider";
+import React from "react";
 
 const App = () => {
-  const { blurs, inputVisible } = useContext(ProductsContext);
-  return (
-    <div>
-      App<MainLayout onclick={() => blurs(!inputVisible)}></MainLayout>
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
