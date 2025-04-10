@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ModalContext } from "../../context/ModalContext";
 import { Modal } from "./Modal";
 import { useAuth } from "../../context/AuthContext";
 import { ProductsContext } from "../../context/ProductsProvider";
 import { motion } from "framer-motion";
+import { useMenu } from "../../context/MenuContext";
+import SnackBar from "./SnackBar";
 const container = {
   hidden: { opacity: 0 },
   visible: {
@@ -33,6 +35,7 @@ const letterAnimation = {
 
 export const Header = () => {
   const { path, setPath } = useAuth();
+  const { isOpen, toggleMenu } = useMenu();
   const { state, inputVisible, setInputvisible } = useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
@@ -94,7 +97,7 @@ export const Header = () => {
               <StyledBadge>{totalBasketAmount}</StyledBadge>
             )}
           </IconWithBadge>
-          <IconBurgerMenu />
+          <IconBurgerMenu onClick={toggleMenu} />
         </ContainerIconsBtn>
       </ContainerHeader>
       {showModal && (
@@ -114,6 +117,7 @@ export const Header = () => {
           </ModalContent>
         </Modal>
       )}
+      {isOpen && <SnackBar />}
     </StyledHeader>
   );
 };
@@ -181,5 +185,15 @@ const StyledBadge = styled.span`
   align-items: center;
   justify-content: center;
 `;
-
+// const AnimatedSideBar = keyframes`
+//   from{
+// transform: translateX(0px);
+//   }
+//   to{
+// transform: translateX(100%);
+//   }
+// `;
+// const StyledSnackBar = styled(SnackBar)`
+//   animation: ${AnimatedSideBar} 5s ease-in-out;
+// `;
 export default Header;

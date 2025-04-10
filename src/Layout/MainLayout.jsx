@@ -7,6 +7,7 @@ import CartList from "../pages/cartList/CartList";
 import { WishListPage } from "../pages/WishListPage";
 import styled from "styled-components";
 import { useAuth } from "../context/AuthContext";
+import { About } from "../pages/About";
 
 const MainLayout = () => {
   const { path } = useAuth();
@@ -18,6 +19,8 @@ const MainLayout = () => {
         return <CartList />;
       case "/favorite":
         return <WishListPage />;
+      case "/about":
+        return <About />;
       default:
         return <Login />;
     }
