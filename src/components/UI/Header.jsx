@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components";
 import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
-  const { setPath, state, inputVisible, setInputvisible } =
+  const { setPath, state, setInputValue, setInputvisible } =
     useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
@@ -20,7 +20,7 @@ export const Header = () => {
       <ContainerHeader>
         <IconButton
           onClick={() => {
-            setPath("/"), setInputvisible(false);
+            setPath("/"), setInputvisible(false), setInputValue("");
           }}
         >
           {<Icons.Logo />}
@@ -31,13 +31,13 @@ export const Header = () => {
           <Icons.HeaderLoupe onClick={() => setInputvisible(true)} />
           <Icons.HeaderProfile
             onClick={() => {
-              setPath("/"), setInputvisible(false);
+              setPath("/"), setInputvisible(false), setInputValue("");
             }}
           />
           <IconWithBadge>
             <Icons.HeaderHeart
               onClick={() => {
-                setPath("/favorite"), setInputvisible(false);
+                setPath("/favorite"), setInputvisible(false), setInputValue("");
               }}
             />
             {totalFavoritesAmount > 0 && (
