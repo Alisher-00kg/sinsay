@@ -9,8 +9,7 @@ import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
   const { path, setPath } = useAuth();
-  const { state, inputVisible, setInputvisible } =
-    useContext(ProductsContext);
+  const { state, inputVisible, setInputvisible } = useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
     0
@@ -29,7 +28,7 @@ export const Header = () => {
         <StyledH4>Sinsay</StyledH4>
 
         <ContainerIconsBtn>
-          <Icons.HeaderLoupe />
+          <Icons.HeaderLoupe onClick={() => setInputvisible(!inputVisible)} />
           <Icons.HeaderProfile onClick={toggleModal} />
           <IconWithBadge>
             <Icons.HeaderHeart
