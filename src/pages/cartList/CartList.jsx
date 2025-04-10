@@ -3,10 +3,12 @@ import styled from "styled-components";
 import { CartItem } from "../../components/UI/CartItem";
 import { Button } from "../../components/UI/Button";
 import { ProductsContext } from "../../context/ProductsProvider";
+import { useAuth } from "../../context/AuthContext";
 
 const CartList = () => {
   const { state, increment, decrement, deleteFromBasket } =
     useContext(ProductsContext);
+  const { setPath } = useAuth();
   return (
     <StyledContainer>
       <CartlistStyled>
@@ -42,7 +44,9 @@ const CartList = () => {
         )}
       </CartlistStyled>
       <StyledShopping>
-        <StyledContiniueButton>Continue shopping</StyledContiniueButton>
+        <StyledContiniueButton onClick={() => setPath("/")}>
+          Continue shopping
+        </StyledContiniueButton>
         <StyledCheckoutDiv>
           <StyledTaxContainer>
             <StyledP>

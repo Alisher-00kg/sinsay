@@ -15,7 +15,7 @@ export const Modal = ({ children }) => {
   );
 };
 const ModalBackdrop = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 38%;
   right: 0;
@@ -34,5 +34,5 @@ const ModalContent = styled.div`
   align-items: center;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow:  0px 0px 0px 4px  rgba(0, 0, 0, 0.1)
+  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1);
 `;

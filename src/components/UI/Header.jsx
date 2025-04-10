@@ -1,13 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
-import styled, { keyframes } from "styled-components";
-import { ProductsContext } from "../../context/ProductsProvider";
+import styled from "styled-components";
 import { ModalContext } from "../../context/ModalContext";
 import { Modal } from "./Modal";
+import { useAuth } from "../../context/AuthContext";
+import { ProductsContext } from "../../context/ProductsProvider";
 
 export const Header = () => {
-  const { setPath, state } = useContext(ProductsContext);
+  const { path, setPath } = useAuth();
+  const { state } = useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
     0
@@ -20,21 +22,27 @@ export const Header = () => {
   return (
     <StyledHeader>
       <ContainerHeader>
-        <IconButton onClick={() => setPath("/")}>{<Icons.Logo />}</IconButton>
+        <IconButton onClick={() => path !== "/sign-in" && setPath("/")}>
+          {<Icons.Logo />}
+        </IconButton>
         <StyledH4>Sinsay</StyledH4>
 
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
           <Icons.HeaderProfile onClick={toggleModal} />
           <IconWithBadge>
-            <Icons.HeaderHeart onClick={() => setPath("/favorite")} />
-            {totalFavoritesAmount > 0 && (
+            <Icons.HeaderHeart
+              onClick={() => path !== "/sign-in" && setPath("/favorite")}
+            />
+            {path !== "/sign-in" && totalFavoritesAmount > 0 && (
               <StyledBadge>{totalFavoritesAmount}</StyledBadge>
             )}
           </IconWithBadge>
           <IconWithBadge>
-            <Icons.HeaderBag onClick={() => setPath("/cart")} />
-            {totalBasketAmount > 0 && (
+            <Icons.HeaderBag
+              onClick={() => path !== "/sign-in" && setPath("/cart")}
+            />
+            {path !== "/sign-in" && totalBasketAmount > 0 && (
               <StyledBadge>{totalBasketAmount}</StyledBadge>
             )}
           </IconWithBadge>
@@ -48,8 +56,9 @@ export const Header = () => {
             <StyledP>My account</StyledP>
             <StyledP
               onClick={() => {
-                setPath("/login");
+                setPath("/sign-in");
                 toggleModal();
+                localStorage.removeItem("userData");
               }}
             >
               Logout
@@ -67,7 +76,8 @@ const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 5;
+  top: 0;
+  z-index: 10;
   background-color: #ffffff;
   padding-left: 3.75%;
 `;

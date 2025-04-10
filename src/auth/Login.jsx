@@ -1,17 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "../components/UI/Button";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
-import { ProductsContext } from "../context/ProductsProvider";
 
 export const Login = () => {
-  const { login } = useAuth();
+  const { login, setPath } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { setPath } = useContext(ProductsContext);
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -37,7 +35,10 @@ export const Login = () => {
       );
       return;
     }
-    login(email, password);
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ email: email, password: password })
+    );
     console.log({ email, password });
     setEmail("");
     setPassword("");
@@ -77,7 +78,7 @@ export const Login = () => {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {/* {showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />} */}
+                {showPassword ? <FaEyeSlash size={24} /> : <FaEye size={24} />}
               </TogglePasswordVisibility>
             </InputContainer>
           </Authordiv>
