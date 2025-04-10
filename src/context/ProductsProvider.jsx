@@ -124,11 +124,6 @@ const reducer = (state, action) => {
           ),
         })),
       };
-    case "remove":
-      return {
-        ...state,
-        basket: [],
-      };
     default:
       return state;
   }
@@ -146,7 +141,6 @@ export const ProductsProvaider = ({ children }) => {
   const deleteFromBasket = (id) => dispatch({ type: "deleteFromBasket", id });
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
-  const removeBasket = (id) => dispatch({ type: "remove", id });
 
   const [valueInput, setInputValue] = useState("");
   const [inputVisible, setInputvisible] = useState(false);
@@ -184,7 +178,6 @@ export const ProductsProvaider = ({ children }) => {
         valueInput,
         blurs,
         legthMassive,
-        removeBasket,
       }}
     >
       {children}

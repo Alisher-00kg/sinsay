@@ -18,14 +18,28 @@ export const Header = () => {
   return (
     <StyledHeader>
       <ContainerHeader>
-        <IconButton onClick={() => setPath("/")}>{<Icons.Logo />}</IconButton>
+        <IconButton
+          onClick={() => {
+            setPath("/"), setInputvisible(false);
+          }}
+        >
+          {<Icons.Logo />}
+        </IconButton>
         <StyledH4>Sinsay</StyledH4>
 
         <ContainerIconsBtn>
-          <Icons.HeaderLoupe onClick={() => setInputvisible(!inputVisible)} />
-          <Icons.HeaderProfile onClick={() => setPath("/")} />
+          <Icons.HeaderLoupe onClick={() => setInputvisible(true)} />
+          <Icons.HeaderProfile
+            onClick={() => {
+              setPath("/"), setInputvisible(false);
+            }}
+          />
           <IconWithBadge>
-            <Icons.HeaderHeart onClick={() => setPath("/favorite")} />
+            <Icons.HeaderHeart
+              onClick={() => {
+                setPath("/favorite"), setInputvisible(false);
+              }}
+            />
             {totalFavoritesAmount > 0 && (
               <StyledBadge>{totalFavoritesAmount}</StyledBadge>
             )}

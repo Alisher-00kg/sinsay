@@ -10,7 +10,7 @@ import { WishListPage } from "../pages/WishListPage";
 import styled from "styled-components";
 
 const MainLayout = () => {
-  const { path, blurs } = useContext(ProductsContext);
+  const { path } = useContext(ProductsContext);
   const showPath = () => {
     switch (path) {
       case "/":
