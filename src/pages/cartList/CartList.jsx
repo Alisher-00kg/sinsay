@@ -6,7 +6,7 @@ import { ProductsContext } from "../../context/ProductsProvider";
 import { useAuth } from "../../context/AuthContext";
 
 const CartList = () => {
-  const { state, increment, decrement, deleteFromBasket } =
+  const { id, state, increment, decrement, deleteFromBasket, removeBasket } =
     useContext(ProductsContext);
   const { setPath } = useAuth();
   return (
@@ -55,7 +55,9 @@ const CartList = () => {
             </StyledP>
             <p>Tax included. Shipping calculated at checkout.</p>
           </StyledTaxContainer>
-          <StyledButtonCheck>Checkout</StyledButtonCheck>
+          <StyledButtonCheck onClick={() => removeBasket(id)}>
+            Checkout
+          </StyledButtonCheck>
         </StyledCheckoutDiv>
       </StyledShopping>
     </StyledContainer>

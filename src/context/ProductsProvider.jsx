@@ -141,6 +141,21 @@ export const ProductsProvaider = ({ children }) => {
   const addToBasketFromMain = (id) =>
     dispatch({ type: "addToBasketFromMain", id });
 
+  const [valueInput, setInputValue] = useState("");
+  const [inputVisible, setInputvisible] = useState(false);
+  const findedMassiveItem = state.productsCatalog.map((item) => ({
+    id: item.id,
+    products: item.products.filter((item) => {
+      return (
+        item.title.toLowerCase().includes(valueInput) ||
+        item.price.toString().includes(valueInput)
+      );
+    }),
+  }));
+
+  const searchMassive = valueInput ? findedMassiveItem : state.productsCatalog;
+  const legthMassive = searchMassive.find((i) => i.products.length > 0);
+
   return (
     <ProductsContext.Provider
       value={{
@@ -153,6 +168,12 @@ export const ProductsProvaider = ({ children }) => {
         decrement,
         deleteFromBasket,
         addToBasketFromMain,
+        searchMassive,
+        inputVisible,
+        setInputvisible,
+        setInputValue,
+        valueInput,
+        legthMassive,
       }}
     >
       {children}

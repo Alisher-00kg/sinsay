@@ -33,7 +33,7 @@ const letterAnimation = {
 
 export const Header = () => {
   const { path, setPath } = useAuth();
-  const { state } = useContext(ProductsContext);
+  const { state, inputVisible, setInputvisible } = useContext(ProductsContext);
   const totalBasketAmount = state.basket.reduce(
     (acc, item) => acc + item.amount,
     0
@@ -76,7 +76,7 @@ export const Header = () => {
         </motion.h4>
 
         <ContainerIconsBtn>
-          <Icons.HeaderLoupe />
+          <Icons.HeaderLoupe onClick={() => setInputvisible(!inputVisible)} />
           <Icons.HeaderProfile onClick={toggleModal} />
           <IconWithBadge>
             <Icons.HeaderHeart
