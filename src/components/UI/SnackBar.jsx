@@ -5,8 +5,10 @@ import { LuX } from "react-icons/lu";
 import styled from "styled-components";
 import { useMenu } from "../../context/MenuContext";
 import IconButton from "./IconButton";
+import { useAuth } from "../../context/AuthContext";
 
 const SnackBar = () => {
+  const { path, setPath } = useAuth();
   const { toggleMenu } = useMenu();
 
   return (
@@ -18,7 +20,10 @@ const SnackBar = () => {
       </StyledTop>
       <StyledSecondInnerBox>
         <MenuItem>
-          <MenuLink href="#">
+          <MenuLink
+            href="#"
+            onClick={() => path !== "/sign-in" && setPath("/")}
+          >
             <IoHomeOutline />
             Home
           </MenuLink>
@@ -27,7 +32,9 @@ const SnackBar = () => {
             Discussions
           </MenuLink>
           <MenuFast>Show More</MenuFast>
-          <MenuFast>About Sinsay</MenuFast>
+          <MenuFast onClick={() => path !== "/sign-in" && setPath("/about")}>
+            About Sinsay
+          </MenuFast>
         </MenuItem>
 
         <div>
