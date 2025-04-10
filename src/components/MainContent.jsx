@@ -24,7 +24,6 @@ export const MainContent = () => {
         <StyledLoupeAndInput>
           <StyledInput
             autoFocus
-            onBlur={() => blurs(!inputVisible)}
             type="text"
             placeholder="search..."
             value={valueInput}
