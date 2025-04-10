@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "../UI/Button";
 import { Icons } from "../../assets/icons/icons";
 import styled from "styled-components";
 import IconButton from "./IconButton";
-
-export const MainCard = ({ image, title, price }) => {
+export const MainCard = ({
+  image,
+  title,
+  price,
+  id,
+  isFavorite,
+  onAddToBasket,
+  onToggleFavorite,
+}) => {
   return (
     <StyledLi>
       <div>
@@ -14,11 +21,17 @@ export const MainCard = ({ image, title, price }) => {
         <StyledP>{title}</StyledP>
         <StyledDivConPrice>
           <StyledSpanPrice> ${price}</StyledSpanPrice>
-          <IconButton>
-            <Icons.BuyHeart />
+          <IconButton onClick={() => onToggleFavorite(id)}>
+            {isFavorite ? (
+              <Icons.BlackHeart style={{ width: "27px", height: "27px" }} />
+            ) : (
+              <Icons.BuyHeart />
+            )}
           </IconButton>
         </StyledDivConPrice>
-        <StyledButton>Add to cart</StyledButton>
+        <StyledButton onClick={() => onAddToBasket(id)}>
+          Add to cart
+        </StyledButton>
       </div>
     </StyledLi>
   );
@@ -34,6 +47,12 @@ const DivImg = styled.div`
   width: 100%;
   height: 100%;
   border: 2px solid #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 const StyledImg = styled.img`
   width: 100%;

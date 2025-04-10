@@ -27,7 +27,7 @@ export const wishList = [
     id: 1,
     image: LipOil1,
     title: "MIXIT Make up Glazed oil gloss, shade pale pink, 5 мл",
-    price: 16.5,
+    price: 46.5,
     isFavorite: false,
     isBasket: false,
   },
@@ -51,7 +51,7 @@ export const wishList = [
     id: 4,
     image: Powder2,
     title: "MIXIT Make Up Compact Powder color 02, 10г",
-    price: 19.5,
+    price: 39.5,
     isFavorite: false,
     isBasket: false,
   },
@@ -117,7 +117,7 @@ export const data = [
     subTitle: "Body care",
     products: [
       {
-        id: 1,
+        id: 5,
         image: EnzymePowder,
         title: "Body-care Skin Chemistry Retinol Power , 30 ml",
         price: 20,
@@ -125,7 +125,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 2,
+        id: 6,
         image: LipScrub,
         title: "MIXIT LAB Cleansing Milk, 250 мл",
         price: 18.5,
@@ -133,7 +133,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 3,
+        id: 7,
         image: MattifyingTonic,
         title: "Body-care MIXIT LAB AQUA Hyaluron Fluid, 150 мл",
         price: 17.5,
@@ -141,7 +141,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 4,
+        id: 8,
         image: SprayTanning,
         title: "Body-care Skin Chemistry Retinol Power , 30 ml",
         price: 19.5,
@@ -155,7 +155,7 @@ export const data = [
     subTitle: "Hair care",
     products: [
       {
-        id: 1,
+        id: 9,
         image: CreamAfterSun,
         title: "AHA! Revolution Soft Peeling glycolic 5%, 100 ml",
         price: 21.5,
@@ -163,15 +163,15 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 2,
+        id: 10,
         image: HydrophilicOil,
         title: "MIXIT LAB AQUA Hyaluron Fluid, 50 ml",
-        price: 19.5,
+        price: 39.5,
         isFavorite: false,
         isBasket: false,
       },
       {
-        id: 3,
+        id: 11,
         image: MaskAcids,
         title: "Face-care Skin Chemistry Retinol Power , 30 ml",
         price: 15.5,
@@ -179,7 +179,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 4,
+        id: 12,
         image: FacialTonic,
         title: "AHA! Revolution Soft Peeling glycolic 5%, 100 ml",
         price: 18.5,
@@ -193,7 +193,7 @@ export const data = [
     subTitle: "Hand care",
     products: [
       {
-        id: 1,
+        id: 13,
         image: Sunscream,
         title: "Hand-care Skin Chemistry Retinol Power , 30 ml",
         price: 18.5,
@@ -201,7 +201,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 2,
+        id: 14,
         image: MoisturizingMask,
         title: "Hand-care Detox Time Mask Puzzle 1, 60 ml",
         price: 19.5,
@@ -209,7 +209,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 3,
+        id: 15,
         image: MoisturizingCream,
         title: "Hand-care AquaLand Mask Puzzle 2, 60 ml",
         price: 20.5,
@@ -217,7 +217,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 4,
+        id: 16,
         image: MaskAcids,
         title: "Vitamin Smoothie Mask Puzzle 3, 60 ml",
         price: 17.5,
@@ -231,7 +231,7 @@ export const data = [
     subTitle: "Other",
     products: [
       {
-        id: 1,
+        id: 17,
         image: LipOil1,
         title: "Make up Glazed oil gloss, shade pale pink, 5 мл",
         price: 16.5,
@@ -239,7 +239,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 2,
+        id: 18,
         image: LipOil4,
         title: "Make up Lip Gloss Blossy Lips, 06, 5 ml",
         price: 17.5,
@@ -247,7 +247,7 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 3,
+        id: 19,
         image: Mascara1,
         title: "Make Up Glam Doll Lash Mascara Make Up, 10 g",
         price: 18.5,
@@ -255,10 +255,10 @@ export const data = [
         isBasket: false,
       },
       {
-        id: 4,
+        id: 20,
         image: Powder2,
         title: "Make Up Compact Powder color 02, 10г",
-        price: 19.5,
+        price: 29.5,
         isFavorite: false,
         isBasket: false,
       },

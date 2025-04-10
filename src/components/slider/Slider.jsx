@@ -25,7 +25,16 @@ export const Slider = () => {
         {images.map((img) => (
           <SwiperSlide key={img.id}>
             <SlideContainer>
-              <StyledImg src={img.src} alt={img.alt} />
+              <img
+                src={img.src}
+                alt={img.alt}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "16px",
+                }}
+              />
             </SlideContainer>
           </SwiperSlide>
         ))}
@@ -37,10 +46,11 @@ export const Slider = () => {
 
 const SliderWrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 315px;
+  width: 99%;
+  height: 350px;
   margin: 0 auto;
-  padding-bottom: 0px;
+  padding-bottom: 30px;
+  margin-top: 12%;
 `;
 const SlideContainer = styled.div`
   width: 100%;
@@ -49,11 +59,6 @@ const SlideContainer = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-`;
-const StyledImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 `;
 const PaginationContainer = styled.div`
   position: absolute;

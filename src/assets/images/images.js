@@ -1,9 +1,6 @@
 export { default as FirstBanner } from "./banner/first.jpg";
 export { default as SecondBanner } from "./banner/second.jpg";
 export { default as ThirdBanner } from "./banner/third.jpg";
-export { default as Unplush1 } from "./unplush/unsplash1.png";
-export { default as Unplush2 } from "./unplush/unsplash2.png";
-export { default as Unplush3 } from "./unplush/unsplash3.png";
 export { default as Sunscream } from "./face-care/Sunscream.webp";
 export { default as CreamAfterSun } from "./face-care/CreamAfterSun.webp";
 export { default as SuntanOil } from "./face-care/SuntanOil.webp";
@@ -38,3 +35,6 @@ export { default as LipStick1 } from "../images/makeup/LipStick1.webp";
 export { default as LipStick2 } from "../images/makeup/LipStick2.webp";
 export { default as LipStick3 } from "../images/makeup/LipStick3.webp";
 export { default as LipStick4 } from "../images/makeup/LipStick4.webp";
+export { default as Unsplash1 } from "../images/unsplash/unsplash1.png";
+export { default as Unsplash2 } from "../images/unsplash/unsplash2.png";
+export { default as Unsplash3 } from "../images/unsplash/unsplash3.png";

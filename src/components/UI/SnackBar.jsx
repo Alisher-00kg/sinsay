@@ -3,8 +3,8 @@ import { IoHomeOutline } from "react-icons/io5";
 import { GoCommentDiscussion } from "react-icons/go";
 import { LuX } from "react-icons/lu";
 import styled from "styled-components";
-import { useMenu } from "./MenuContext";
-import IconButton from "../components/UI/IconButton";
+import { useMenu } from "../../context/MenuContext";
+import IconButton from "./IconButton";
 
 const SnackBar = () => {
   const { toggleMenu } = useMenu();
