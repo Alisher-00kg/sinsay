@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icons } from "../../assets/icons/icons";
 import IconButton from "./IconButton";
 import styled from "styled-components";
@@ -6,6 +6,30 @@ import { ModalContext } from "../../context/ModalContext";
 import { Modal } from "./Modal";
 import { useAuth } from "../../context/AuthContext";
 import { ProductsContext } from "../../context/ProductsProvider";
+import { motion } from "framer-motion";
+const container = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const letterAnimation = {
+  hidden: { opacity: 0, x: 0, y: 0 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: -20,
+    transition: {
+      duration: 3,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
+  },
+};
 
 export const Header = () => {
   const { path, setPath } = useAuth();
@@ -19,13 +43,37 @@ export const Header = () => {
     0
   );
   const { toggleModal, showModal } = useContext(ModalContext);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
+  const text = "SINSAY";
   return (
     <StyledHeader>
       <ContainerHeader>
         <IconButton onClick={() => path !== "/sign-in" && setPath("/")}>
           {<Icons.Logo />}
         </IconButton>
-        <StyledH4>Sinsay</StyledH4>
+
+        <motion.h4
+          variants={container}
+          initial="hidden"
+          animate={show ? "visible" : "hidden"}
+          style={{
+            display: "flex",
+            gap: "5px",
+            fontSize: "2rem",
+            fontWeight: "600",
+          }}
+        >
+          {text.split("").map((char, index) => (
+            <motion.span key={index} variants={letterAnimation}>
+              {char}
+            </motion.span>
+          ))}
+        </motion.h4>
 
         <ContainerIconsBtn>
           <Icons.HeaderLoupe />
@@ -107,12 +155,7 @@ const IconBurgerMenu = styled(Icons.BurgerMenu)`
   height: 25px;
   margin-left: 20px;
 `;
-const StyledH4 = styled.h4`
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 120%;
-  text-transform: uppercase;
-`;
+
 const ContainerIconsBtn = styled(IconButton)`
   display: flex;
   gap: 50px;
@@ -138,3 +181,5 @@ const StyledBadge = styled.span`
   align-items: center;
   justify-content: center;
 `;
+
+export default Header;
